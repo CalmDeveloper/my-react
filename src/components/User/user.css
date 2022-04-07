@@ -1,0 +1,12 @@
+
+.gray{background: #faf4f4;
+    padding: 3px;
+    width: 450px;
+    margin: 5px;
+}
+.blue{background: #e1e1fd;
+    padding: 3px;
+    width: 450px;
+    margin: 5px;
+}
+.gray, .blue{border: saddlebrown solid 1px}
