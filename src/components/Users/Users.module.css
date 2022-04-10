@@ -1,0 +1,6 @@
+.UsersStyle{
+    border: black solid 1px;
+    background-color: whitesmoke;
+    border-radius: 7px;
+    display: flex;
+}

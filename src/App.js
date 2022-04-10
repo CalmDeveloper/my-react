@@ -1,10 +1,18 @@
-import './App.css';
-import {Users} from "./components";
+import app from'./App.module.css';
+import {UserInfo, Users} from "./components";
+
+
+
+
+
 
 function App() {
+
+
   return (
-    <div>
-<Users/>
+    <div className={app.father}>
+        {<Users/>}
+
     </div>
   );
 }

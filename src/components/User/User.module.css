@@ -1,0 +1,25 @@
+.UserStyle{
+    width: 280px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+    margin: 10px;
+    border: #252222 solid 1px;
+    padding: 4px;
+    border-radius: 4px;
+}
+.UserStyle > button{
+   background: #acde7d;
+    cursor: pointer;
+    width: 70px;
+    height: 22px;
+
+}
+
+.UserStyle > button:hover{
+    background: #87c94c;
+    width: 74px;
+    height: 24px;
+    box-shadow: 5px 5px 15px 2px #252525;
+    transition: 200ms ;
+}
