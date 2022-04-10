@@ -13,7 +13,7 @@ import  styles from './Users.module.css'
         usersService.getAll().then(({ data }) => setUsers(data))
     }, []);
      const [user, setUser] = useState(null);
-     const  getUserId = async (id) => {
+     const  getUser = async (id) => {
          const {data} = await usersService.getById(id)
          setUser(data)
      }
@@ -23,16 +23,8 @@ import  styles from './Users.module.css'
     return (
         <div className={styles.UsersStyle}>
                 <div>
-                    {users.map((user) => <User key={user.name} user={user} getUserId={getUserId}/>)}
+                    {users.map((user) => <User key={user.name} user={user}  getUserId={getUser}/>)}
                 </div>
-            {user&& <div>
-            <div>id: {user.id}</div>
-            <div>name: {user.name}</div>
-            <div>username: {user.username}</div>
-            <div>email: {user.email}</div>
-            <div>phone: {user.phone}</div>
-            <div>website: {user.website}</div>
-        </div>}
 
         </div>
 

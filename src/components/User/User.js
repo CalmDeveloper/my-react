@@ -5,6 +5,9 @@ export const User = ({user,getUserId}) => {
     const {id, name,}=user;
 
 
+
+
+
     return (
         <div className={styles.UserStyle}>
           <span>{id}</span><span>{name}</span>
