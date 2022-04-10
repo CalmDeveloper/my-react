@@ -1,7 +1,7 @@
 import  styles from './User.module.css'
 
 
-export const User = (user) => {
+export const User = ({user,getUserId,getUser}) => {
     const {id, name,} = user;
 
 
@@ -9,7 +9,10 @@ export const User = (user) => {
     return (
         <div className={styles.UserStyle}>
           <span>{id}</span><span>{name}</span>
-            <button onClick={()=>{}}>UserInfo</button>
+            <button onClick={()=>{
+                getUserId(id)
+                getUser({user})
+            }}>UserInfo</button>
 
         </div>
     );
