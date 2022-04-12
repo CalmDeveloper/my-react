@@ -1,8 +1,10 @@
 
 import {useEffect, useState} from "react";
-import {usersService as userService, usersService} from "../../services/users.service";
+
 import  styles from './Users.module.css'
 import {User} from "../User/User";
+import {usersService} from "../../services";
+
 
  const Users = ({getUser}) => {
      const [users, setUsers] = useState([]);
@@ -13,7 +15,7 @@ usersService.getAll().then(({data}) =>setUsers(data) )
 },[])
 
      const getUserId = async (id) => {
-         const {data} = await userService.getById(id);
+         const {data} = await usersService.getById(id);
          console.log(data)
          setUser(user)
      }

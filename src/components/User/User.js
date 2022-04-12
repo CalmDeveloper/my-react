@@ -1,7 +1,7 @@
 import  styles from './User.module.css'
 
 
-export const User = ({user,getUserId,getUser}) => {
+export const User = ({user,getUserId,getUser,setUserIdForPosts}) => {
     const {id, name,} = user;
 
 
@@ -12,6 +12,7 @@ export const User = ({user,getUserId,getUser}) => {
             <button onClick={()=>{
                 getUserId(id)
                 getUser({user})
+                setUserIdForPosts(false);
             }}>UserInfo</button>
 
         </div>

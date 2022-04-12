@@ -1,5 +1,5 @@
 import style from './UserInfo.module.css'
-export const  UserInfo =  ({user}) => {
+export const  UserInfo =  ({user,setUserIdForPosts}) => {
 
 
 
@@ -11,7 +11,10 @@ export const  UserInfo =  ({user}) => {
             <div>email: {user.email}</div>
             <div>phone: {user.phone}</div>
             <div>website: {user.website}</div>
-            <button>GetPosts</button>
+            <button onClick={()=>{
+                setUserIdForPosts(user.id)
+            }}>GetPosts</button>
+
         </div>
     );
 };
