@@ -1,5 +1,9 @@
 
-export const Post = ({post}) => {
+
+export const Post = ({post,userId}) => {
+
+
+
     return (
         <div>
             <hr/>

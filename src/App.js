@@ -6,23 +6,18 @@ import {useState} from "react";
 
 
 
+
 function App() {
-  const [user, setUser] = useState(null);
-
-  const getUser = async ({user}) => {
-    await setUser(user)
-  }
-
-    const [userIdForPosts, setUserIdForPosts] = useState(null);
-
+    const [user,setUser] =  useState(null)
+    const [userId,setUserId]= useState(null)
 
   return (
     <div >
       <div className={users_UserInfo.father}>
-        {<Users setUser={setUser} getUser={getUser} setUserIdForPosts={setUserIdForPosts} />}
-        {user && <UserInfo user={user} setUserIdForPosts={setUserIdForPosts}/>}
+        {<Users setUser={setUser} />}
+          {user&& <UserInfo user={user} setUserId={setUserId}/>}
       </div>
-        {userIdForPosts && <Posts userId={userIdForPosts}/>}
+        { userId&&<Posts userId={userId}/>}
 
 
     </div>

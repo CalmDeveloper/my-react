@@ -1,25 +1,17 @@
-import { useEffect, useState } from 'react';
-
-
-
-import {postService as postsService} from "../../services";
 import {Post} from "../Post/Post";
+import {useEffect, useState} from "react";
+import {postService} from "../../services";
 
 export const Posts = ({userId}) => {
-    const [posts, setPosts] = useState(null);
+    const [posts, setPosts]= useState([])
 
     useEffect(() => {
-        postsService.getPostsByUserId(userId).then(({data}) => setPosts(data));
-    }, [userId]);
+        postService.getPostsByUserId(userId).then(({data}) =>  setPosts(data))
+    },[userId])
 
     return (
         <div>
-            {
-                posts
-                    ? posts.map((post) => <Post key={post.id} post={post}/>)
-                    : 'Loading...'
-            }
-
+            {posts.map(post => <Post key={post.id} post={post} userId={userId}/> )}
         </div>
     );
 }

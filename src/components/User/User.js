@@ -1,20 +1,17 @@
 import  styles from './User.module.css'
 
 
-export const User = ({user,getUserId,getUser,setUserIdForPosts}) => {
-
+export const User = ({user,setUser,getUserById}) => {
+const {id,name} = user
 
 
 
     return (
         <div className={styles.UserStyle}>
-          <span>{user.id}</span><span>{user.name}</span>
+          <span>{id}</span><span>{name}</span>
             <button onClick={()=>{
-                getUser({user})
-                getUserId(user.id)
-                setUserIdForPosts(false);
-
-
+                setUser(user)
+                getUserById(id)
 
             }}>UserInfo</button>
 

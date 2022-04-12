@@ -1,18 +1,19 @@
 import style from './UserInfo.module.css'
-export const  UserInfo =  ({user,setUserIdForPosts}) => {
-
+export const  UserInfo =  ({user,setUserId}) => {
+    const {id, name, username, email, phone, website}=user
 
 
     return (
         <div className={style.UserInfoStyle}>
-            <div>id: {user.id}</div>
-            <div>name: {user.name}</div>
-            <div>username: {user.username}</div>
-            <div>email: {user.email}</div>
-            <div>phone: {user.phone}</div>
-            <div>website: {user.website}</div>
+            <div>id: {id}</div>
+            <div>name: {name}</div>
+            <div>username: {username}</div>
+            <div>email: {email}</div>
+            <div>phone: {phone}</div>
+            <div>website: {website}</div>
             <button onClick={()=>{
-                setUserIdForPosts(user.id)
+               setUserId(id)
+
             }}>GetPosts</button>
 
         </div>
