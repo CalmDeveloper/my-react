@@ -11,13 +11,14 @@ function App() {
     const [user,setUser] =  useState(null)
     const [userId,setUserId]= useState(null)
 
+
   return (
     <div >
       <div className={users_UserInfo.father}>
-        {<Users setUser={setUser} />}
+        {<Users setUser={setUser}/>}
           {user&& <UserInfo user={user} setUserId={setUserId}/>}
       </div>
-        { userId&&<Posts userId={userId}/>}
+        { user&&<Posts userId={userId}/>}
 
 
     </div>

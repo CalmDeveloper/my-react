@@ -26,7 +26,7 @@ import {User} from "../User/User";
     return (
         <div className={styles.UsersStyle}>
                 <div>
-                    {users.map(user => <User key={user.id} user={user}  setUser={setUser} getUserById={getUserById}/>)}
+                    {users.map(user => <User key={user.id} user={user}  getUserById={getUserById}/>)}
                 </div>
 
         </div>

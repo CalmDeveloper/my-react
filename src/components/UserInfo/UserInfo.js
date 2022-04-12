@@ -1,5 +1,5 @@
 import style from './UserInfo.module.css'
-export const  UserInfo =  ({user,setUserId}) => {
+export const  UserInfo =  ({user, setUserId}) => {
     const {id, name, username, email, phone, website}=user
 
 
