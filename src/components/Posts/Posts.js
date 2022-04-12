@@ -10,7 +10,7 @@ export const Posts = ({userId}) => {
 
     useEffect(() => {
         postsService.getPostsByUserId(userId).then(({data}) => setPosts(data));
-    }, []);
+    }, [userId]);
 
     return (
         <div>
