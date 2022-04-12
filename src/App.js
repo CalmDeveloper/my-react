@@ -1,9 +1,10 @@
 import './App.css';
+import {CarForm} from "./components";
 
 function App() {
   return (
     <div>
-hello
+<CarForm/>
     </div>
   );
 }
