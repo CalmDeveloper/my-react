@@ -1,0 +1,6 @@
+.btn{display:flex;
+margin: 5px;
+}
+.btn > button{
+    margin-left: 3px;
+margin-right: 3px}

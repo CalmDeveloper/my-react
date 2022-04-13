@@ -1,13 +1,24 @@
+import btn from "./btn.module.css"
+import {carService} from "../../services";
+const Car = ({car,setCarForUpdate,setDeletedCarId}) => {
+const {id,model,price,year}=car
 
-const Car = ({car}) => {
-const {id,model,price}=car
+
     return (
         <div>
             <hr/>
             <div>Id: {id}</div>
             <div>Model: {model}</div>
             <div>Price: {price}</div>
-            <hr/>
+            <div>Year: {year}</div>
+
+<div className={btn.btn}>
+    <button onClick={() => {setCarForUpdate(car)}}>Update</button>
+    <button>delate</button>
+</div>
+
+
+
         </div>
     );
 };
