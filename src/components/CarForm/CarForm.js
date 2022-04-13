@@ -21,6 +21,7 @@ const CarForm = ({setNewCar, carForUpdate}) => {
             setValue('year', year)
         }
     }, [carForUpdate])
+
     const mySubmit = async (car) => {
         try {
             const {data} = await carService.create(car);
