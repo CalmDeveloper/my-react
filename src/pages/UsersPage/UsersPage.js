@@ -14,6 +14,7 @@ const UsersPage = () => {
         <div style={{display:'flex'}}>
             <div style={{minWidth:'300px'}}>{users && users.map(user => <User key={user.id} user={user}/> )}</div>
             <div><Outlet/></div>
+
         </div>
     );
 };

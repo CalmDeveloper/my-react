@@ -1,8 +1,7 @@
-
+import {Button} from "../Button/Button";
 
 const UserDetails = ({user}) => {
     const {id,name,username,email, address:{street, suite, city, zipcode,geo:{lat,lng}},phone,website} = user
-
 
     return (
         <div style={{margin:'20px'}}>
@@ -22,8 +21,14 @@ const UserDetails = ({user}) => {
             </ul>
             <div>phone: {phone}</div>
             <div>website: {website}</div>
+            <Button to={'../../posts'} state={id}>get Posts</Button>
+            {/*<Button to={'../posts'} state={id}>get Posts</Button>*/}
         </div>
+
     );
 };
 
 export {UserDetails};
+
+
+

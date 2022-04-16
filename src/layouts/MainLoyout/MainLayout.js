@@ -7,8 +7,8 @@ const MainLayout = () => {
         <div>
 <div className={css.header}>
     <NavLink to={'users'}>Users</NavLink>
+    <NavLink to={'posts'}>Posts</NavLink>
     <NavLink to={'home'}>Home</NavLink>
-
 </div>
             <Outlet/>
         </div>
