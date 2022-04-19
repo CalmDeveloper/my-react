@@ -1,22 +1,27 @@
-import {useLocation} from "react-router-dom";
+import {Outlet, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {postService} from "../../services";
-import {PostDetails} from "../../components";
+import {Post, PostDetails} from "../../components";
 
 const PostPageForUser = () => {
-    const {state} = useLocation()
+    const {id} = useParams()
   const [posts,setPosts] =  useState([])
 
     useEffect(() => {
-        postService.getByUserId(state).then(({data}) => setPosts(data))
-    },[state])
+        if (id){
+            postService.getByUserId(id).then(({data}) => setPosts(data))
+        }
+        else {
+            postService.getAll().then(({data})=>setPosts(data))
+        }
+
+    },[id])
 
     return (
         <div>
             <div>
-                {posts && posts.map(post => <PostDetails key={post.id} post={post}/>)}
+                {posts && posts.map(post => <Post key={post.id} post={post} flag={!id}/>)}
             </div>
-
         </div>
     );
 };

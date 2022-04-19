@@ -14,23 +14,23 @@ const UserDetails = ({user}) => {
             <li>name: {name}</li>
             <li>username: {username}</li>
             <li> email: {email}</li>
-            <ul>address:
-            <li>street: {address.street}</li>
-            <li>suite: {address.suite}</li>
-            <li>city: {address.city}</li>
-            <li>zipcode: {address.zipcode}</li>
-            <ul>Geo:
-            <li>lat: {address.geo.lat}</li>
-            <li>lng: {address.geo.lng}</li>
-            </ul>
-            </ul>
+            {/*<ul>address:*/}
+            {/*<li>street: {address.street}</li>*/}
+            {/*<li>suite: {address.suite}</li>*/}
+            {/*<li>city: {address.city}</li>*/}
+            {/*<li>zipcode: {address.zipcode}</li>*/}
+            {/*<ul>Geo:*/}
+            {/*<li>lat: {address.geo.lat}</li>*/}
+            {/*<li>lng: {address.geo.lng}</li>*/}
+            {/*</ul>*/}
+            {/*</ul>*/}
             <li>phone: {phone}</li>
             <li>website: {website}</li>
-            <ul>company:
-            <li>name: {company.name}</li>
-            <li>catchPhrase: {company.catchPhrase}</li>
-            <li>bs: {company.bs}</li>
-            </ul>
+            {/*<ul>company:*/}
+            {/*<li>name: {company.name}</li>*/}
+            {/*<li>catchPhrase: {company.catchPhrase}</li>*/}
+            {/*<li>bs: {company.bs}</li>*/}
+            {/*</ul>*/}
             </ul>
 
             <Button to={`posts`} state={{id}}>Get Posts</Button>

@@ -24,7 +24,7 @@ useEffect(() => {
     return (
         <div>
             {user&& <UserDetails user={user}/>}
-<div><Outlet/></div>
+<div style={{marginTop:"20px"}}><Outlet/></div>
         </div>
     );
 };
