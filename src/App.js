@@ -1,4 +1,5 @@
 import './App.css';
+
 import {Routes, Route, Navigate} from "react-router-dom"
 import {MainLayout} from "./components/layouts";
 import {AboutPage, HomePage, NotFoundPage, PostsPage, SinglePostPage, UsersPage} from "./pages";
@@ -6,6 +7,8 @@ import {SingleUserPage} from "./pages/SingleUserPage/SingleUserPage";
 import {PostPageForUser} from "./pages/PostsPageForUser/PostPageForUser";
 
 function App() {
+
+
     return (
         <Routes>
             <Route path={'/'} element={<MainLayout/>}>
