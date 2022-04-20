@@ -6,7 +6,7 @@ const User = ({user}) => {
 
     return (
         <div>
-<span>{id}</span> <span>{name}</span>  <Button to={`${id}`} state={user}>get Detailes</Button>
+<span>{id}</span> <span>{name}</span>  <Button to={`${id}`}>get Detailes</Button>
         </div>
     );
 };

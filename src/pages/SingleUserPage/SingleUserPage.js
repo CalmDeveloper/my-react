@@ -7,19 +7,14 @@ import {UserDetails} from "../../components/UserDetails/UserDetails";
 
 
 const SingleUserPage = () => {
-    const {state} = useLocation();
     const {id} =useParams()
-const [user,setUserDetails] = useState(state)
+const [user,setUserDetails] = useState()
 
 
 useEffect(() => {
-    if (!state){
+
         usersService.getUserById(id).then(({data}) => setUserDetails(data))
-    }else
-    {
-        setUserDetails(state)
-    }
-},[id,state])
+},[id,])
 
     return (
         <div>

@@ -26,7 +26,7 @@ const PostsPage = () => {
         postService.getAllwithFilterPage(query.get('page')).then(({data}) => setPosts(data))
     },[query])
     return (
-        <div style={{display:'flex'}}>
+        <div style={{display:'block'}}>
             <div>{posts.map(post => <Post key={post.id} post={post}/>)}</div>
             <div><Outlet/></div>
             <button onClick={()=>prevPage()}>Prev</button>
