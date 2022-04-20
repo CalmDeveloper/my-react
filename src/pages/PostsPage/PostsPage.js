@@ -12,6 +12,10 @@ const PostsPage = () => {
         let page = query.get('page')
         page= +page+1
         setQuery({page:page.toString()})
+       // const  queryObj= Object.fromEntries(query.entries());
+       //  queryObj.page++
+       //  setPosts(queryObj)
+       //  не працює
     }
     const prevPage = () => {
         let page = query.get('page')
