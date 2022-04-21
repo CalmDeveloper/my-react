@@ -24,9 +24,9 @@ function App() {
                return {...state,count3:0}
 
        }
-     
+
    }
-    
+
         const [state, dispatch] = useReducer(reducer, {count1: 0,count2:0,count3:0});
         return (
             <div>
@@ -54,9 +54,6 @@ function App() {
         );
     }
     export default App;
-
-
-
 
 
 
