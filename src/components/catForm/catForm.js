@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {actionsCat} from "../../redux/slices/catSlice";
+import {actionsCat} from "../../redux";
 
 const CatForm = () => {
     const [name,setName]= useState('')

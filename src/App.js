@@ -1,14 +1,25 @@
 import './App.css';
-import {CatForm} from "./components/catForm/catForm";
-import {Cats} from "./components/cats/cats";
+import {CatForm} from "./components";
+import {Cats} from "./components";
+import {DogForm} from "./components/dogForm/dogForm";
+import {Dogs} from "./components/dogs/dogs";
 
 
 
 function App() {
     return (
-<div>
-    <CatForm/>
-    <Cats/>
+<div style={{display:'flex', justifyContent:'space-between'}}>
+    <div>
+        <CatForm/>
+        <Cats/>
+    </div>
+    <div>
+        <DogForm/>
+        <Dogs/>
+    </div>
+
+
+
 </div>
 
     );
