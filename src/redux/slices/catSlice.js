@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const initialState = {cats: []}
+const initialState = {cats: [], catForUpdate:null}
 const catSlice = createSlice({
     name: 'catSlice',
     initialState,
@@ -16,8 +16,13 @@ const catSlice = createSlice({
             state.cats.splice(index,1)
         },
         updateCat: (state, action) => {
+         const {name,id} = action.payload
+           const index = state.cats.findIndex(cat =>cat.id===id)
+          state.cats[index].name=name
+            state.catForUpdate = false;
         },
         setCatForUpdate: (state, action) => {
+             state.catForUpdate=action.payload.cat
         }
     }
 })

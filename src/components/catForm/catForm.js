@@ -1,22 +1,35 @@
-import {useState} from "react";
-import {useDispatch} from "react-redux";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {actionsCat} from "../../redux/slices/catSlice";
 
 const CatForm = () => {
     const [name,setName]= useState('')
     const dispatch = useDispatch()
+const {catForUpdate} = useSelector(({cat}) => cat)
+
+useEffect(() => {
+    if (catForUpdate){
+        setName(catForUpdate.name)
+    }
+
+},[catForUpdate])
 
     const save = () => {
-        dispatch(actionsCat.addCat({name}));
+        if (catForUpdate){
+          dispatch(actionsCat.updateCat({ name, id: catForUpdate.id }))
+        }
+        else {
+            dispatch(actionsCat.addCat({name}));
+        }
         setName('');
     }
-    console.log(name)
+
     return (
         <div>
             <label>cat:
                 <input type="text" onChange={(e) => setName(e.target.value)}
                        value={name}/>
-                <button onClick={save}>save</button>
+                <button onClick={save}>{catForUpdate? 'update' : 'create'}</button>
             </label>
 
         </div>
