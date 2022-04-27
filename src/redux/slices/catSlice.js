@@ -12,6 +12,8 @@ const catSlice = createSlice({
             state.cats.push(newCat);
         },
         delCat: (state, action) => {
+           const index =  state.cats.findIndex(cat => cat.id===action.payload.id)
+            state.cats.splice(index,1)
         },
         updateCat: (state, action) => {
         },
