@@ -1,6 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {carService} from '../../services/'
 
+
+
 const initialState = {cars: [], status: null,formErrors:{}}
 
 const getAll = createAsyncThunk(
@@ -13,7 +15,6 @@ const getAll = createAsyncThunk(
 const create = createAsyncThunk(
     'carSlice/create',
     async ({car},{rejectWithValue}) => {
-
         try {
             const {data} = await carService.create(car)
             return data
@@ -23,11 +24,26 @@ return rejectWithValue({status:e.message, formErrors:e.response.data})
     }
 )
 
+const delate = createAsyncThunk(
+    'carSlice/delate',
+    async ({id},{dispatch}) => {
+
+      await carService.deleteById(id)
+
+      dispatch(delateCarByID({id}))
+    })
+
 
 const carSlice = createSlice({
     name: 'carSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        delateCarByID:((state, action) =>{
+            const index =  state.cars.findIndex(car =>car.id===action.payload.id)
+            console.log(action.payload.id)
+            state.cars.splice(index,1)
+        } )
+    },
     extraReducers: {
         [getAll.pending]: (state, action) => {
             // console.log('pending')
@@ -50,12 +66,18 @@ const carSlice = createSlice({
         const {status, formErrors} =  action.payload
             state.status=status
             state.formErrors = formErrors
-        }
+        },
+        // [delate.fulfilled]: (state, action) => {
+        //     console.log('delated')
+        // },
+        // [delate.rejected]: (state, action) => {
+        //    console.log('error')
+        // }
     }
 
 })
 
-const {reducer: carReducer, actions} = carSlice;
+const {reducer: carReducer, actions:{delateCarByID}} = carSlice;
 
-const carActions = {getAll, create}
+const carActions = {getAll, create,delateCarByID,delate}
 export {carReducer, carActions}
