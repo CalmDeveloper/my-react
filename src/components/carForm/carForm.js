@@ -1,13 +1,28 @@
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {carActions} from "../../redux/slices/carSlice";
+import {useEffect} from "react";
 
 const CarForm = () => {
-    const {register, reset, handleSubmit} = useForm();
-   const {formErrors}= useSelector(state => state.cars)
+    const {register, reset, handleSubmit,setValue} = useForm();
+   const {formErrors,carForUpdate}= useSelector(state => state.cars)
 const dispatch = useDispatch()
+
+useEffect(() => {
+    if (carForUpdate){
+        const {model,price,year} =  carForUpdate
+        setValue('model', model)
+        setValue('price', price)
+        setValue('year', year)
+}},[carForUpdate])
     const submit = async  (newCar) => {
-await  dispatch(carActions.create({car:newCar}))
+       if (carForUpdate){
+
+           await  dispatch(carActions.update({id:carForUpdate.id,car:newCar}))
+       }else
+       {
+           await  dispatch(carActions.create({car:newCar}))
+       }
         reset()
     }
     return (
