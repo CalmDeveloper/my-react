@@ -2,12 +2,13 @@ import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {carActions} from "../../redux/slices/carSlice";
 import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 
 const CarForm = () => {
     const {register, reset, handleSubmit,setValue} = useForm();
    const {formErrors,carForUpdate}= useSelector(state => state.cars)
 const dispatch = useDispatch()
-
+const navigate = useNavigate()
 useEffect(() => {
     if (carForUpdate){
         const {model,price,year} =  carForUpdate
@@ -17,8 +18,8 @@ useEffect(() => {
 }},[carForUpdate])
     const submit = async  (newCar) => {
        if (carForUpdate){
-
            await  dispatch(carActions.update({id:carForUpdate.id,car:newCar}))
+           navigate('/cars');
        }else
        {
            await  dispatch(carActions.create({car:newCar}))
