@@ -1,12 +1,19 @@
 import './App.css';
-import {CarForm, Cars} from "./components";
 
+import {Route,Routes,Navigate} from 'react-router-dom'
+import {MainLayout} from "./layouts";
+import {CarsPage, NotFoundPage, SingleCarPage} from "./pages";
 function App() {
     return (
-        <div style={{display:'flex',justifyContent:'space-evenly'}}>
-            <Cars/>
-            <CarForm/>
-        </div>
+        <Routes>
+            <Route path={'/'} element={<MainLayout/>}>
+                <Route index element={<Navigate to={'cars'}/>}/>
+               <Route path="cars" element={<CarsPage/>}/>
+                <Route path="cars/:id" element={<SingleCarPage/>}/>
+                <Route path="*" element={<NotFoundPage/>}/>
+            </Route>
+        </Routes>
+
     );
 }
 

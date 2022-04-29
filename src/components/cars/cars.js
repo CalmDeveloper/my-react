@@ -9,6 +9,7 @@ const dispatch = useDispatch()
     useEffect(() => {
         dispatch(carActions.getAll())
     },[])
+
     return (
         <div>
             {status && <h2>{status}</h2>}
