@@ -1,9 +1,9 @@
 import './App.css';
 import {Routes,Route,Navigate} from 'react-router-dom'
 import {MainLayout} from "./loyouts";
-import {EpisodePages} from "./pages/EpisodePages/EpisodePages";
-import {CharactersPage} from "./pages/CharactersPage/CharactersPage";
-import {NotFoundPage} from "./pages/NotFoundPage/NotFoundPage";
+import {EpisodePages} from "./pages";
+import {CharactersPage} from "./pages";
+import {NotFoundPage} from "./pages";
 
 function App() {
   return (

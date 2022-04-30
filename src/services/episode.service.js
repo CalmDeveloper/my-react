@@ -2,7 +2,7 @@ import {axiosService} from './axios.service'
 import {urls} from "../constants/urls";
 
 const episodeService = {
-    getAll:()=> axiosService.get(urls.episode)
+    getAll:(page=1)=> axiosService.get(urls.episode,{params:{page}})
 }
 
 export {episodeService};
