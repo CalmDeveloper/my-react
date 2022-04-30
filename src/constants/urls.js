@@ -1,6 +1,7 @@
 const baseURL= process.env.REACT_APP_API
 const urls={
- episode:'/episode'
+ episode:'/episode',
+ character:'/character'
 }
 export default baseURL;
 

@@ -1,0 +1,22 @@
+.episode{
+    width: 287px;
+    height: 150px;
+    background-color: #6252f1;
+    color: whitesmoke;
+    border: black solid 1px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.episode:hover{
+    cursor: pointer;
+    background-color: #ee0303;
+}
+.episode>div{margin: 10px}
+
+.text{color: yellow;
+    font-weight: bolder;
+}

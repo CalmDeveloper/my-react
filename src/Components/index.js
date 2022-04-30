@@ -1,2 +1,6 @@
 export * from './episode/episode'
 export * from './episodes/episodes'
+export * from './header/header'
+export * from './singleEpisode/singleEpisode'
+export * from './character/character'
+export * from './characters/characters'

@@ -1,0 +1,14 @@
+.character{
+    border: #252525 solid 1px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 172.5px;
+    height: 260px;
+
+
+}
+

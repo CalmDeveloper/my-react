@@ -1,0 +1,8 @@
+.episodes{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 13px;
+    row-gap: 13px;
+
+}

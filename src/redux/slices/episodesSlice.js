@@ -1,11 +1,11 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {episodeService} from "../../services";
-const initialState = {count:null, pages:null, next:null, prev:null, episodes:[]}
+const initialState = {count:null, pages:null, next:null, prev:null, episodes:[],curentEpisode:null}
 
 const getAll = createAsyncThunk(
    "mortySlice/getAll",
-    async ()=>{
-     const {data} =   await  episodeService.getAll()
+    async ({page})=>{
+     const {data} =   await  episodeService.getAll(page)
         return data
     }
 )
@@ -13,14 +13,17 @@ const getAll = createAsyncThunk(
 const mortySlice = createSlice({
     name: "mortySlice",
     initialState,
-    reducers: {},
+    reducers: {
+        getCurentEpisode:((state, action) => {
+            state.curentEpisode=action.payload.episodeName
+        })
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getAll.fulfilled, ((state, action) => {
 const {info:{count, pages, next, prev},results} = action.payload
-state.count = count
+   state.count = count
    state.pages = pages
-   state.next = next
    state.next = next
    state.prev = prev
       state.episodes = results
@@ -28,10 +31,10 @@ state.count = count
     }
 })
 
-const {reducer:mortyReducer,actions} = mortySlice
+const {reducer:mortyReducer,actions:{getCurentEpisode}} = mortySlice
 
 const episodeActions = {
-    getAll
+    getAll,getCurentEpisode
 }
 export {mortyReducer,episodeActions};
 
