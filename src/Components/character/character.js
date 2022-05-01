@@ -7,7 +7,7 @@ const Character = ({character}) => {
         <div className={css.character}>
             <div>id: {id}</div>
             <div>name: {name}</div>
-            <div>statuse: {status}</div>
+            <div>status: {status}</div>
             <div>species: {species}</div>
             <div>gender: {gender}</div>
             <img src={image} alt={name}  width="150"/>

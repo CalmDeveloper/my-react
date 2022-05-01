@@ -9,3 +9,15 @@
     flex-direction: column;
 
 }
+
+
+.nav a{
+
+    text-decoration: none;
+    color: snow;
+    font-size: 20px;
+}
+
+.nav a[class='active']{
+    color: red;
+}

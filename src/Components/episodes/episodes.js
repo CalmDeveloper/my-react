@@ -33,7 +33,7 @@ const toPrev = () => {
                 {episodes.map(episode => <Episode key={episode.id} episode={episode} />)}
             </div>
 
-            <div style={{display:'flex', marginTop:'15px', position:'absolute',top:'40px',left:'20px'}}>
+            <div style={{display:'flex', position:'absolute',top:'90px',left:'20px'}}>
                 <button onClick={toPrev} disabled={!prev}>prev</button>
                 <button onClick={toNext} disabled={!next}>next</button>
             </div>

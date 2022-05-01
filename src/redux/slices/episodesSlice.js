@@ -5,6 +5,7 @@ const initialState = {count:null, pages:null, next:null, prev:null, episodes:[],
 const getAll = createAsyncThunk(
    "mortySlice/getAll",
     async ({page})=>{
+
      const {data} =   await  episodeService.getAll(page)
         return data
     }
@@ -27,6 +28,7 @@ const {info:{count, pages, next, prev},results} = action.payload
    state.next = next
    state.prev = prev
       state.episodes = results
+                state.curentEpisode=false
             }))
     }
 })
