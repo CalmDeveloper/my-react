@@ -6,13 +6,14 @@ import css from './episodes.module.css'
 import {useSearchParams} from "react-router-dom";
 
 
+
 const Episodes = () => {
-const  dispatch  = useDispatch()
     const {episodes,prev,next} =  useSelector(state => state.episodes)
+    const  dispatch  = useDispatch()
 
     const [query, setQuery] = useSearchParams({page: '1'});
     useEffect(() => {
-        dispatch(episodeActions.getAll({page:query.get('page')}))
+            dispatch(episodeActions.getAll({page:query.get('page')}))
     },[query])
 
 const toPrev = () => {
@@ -30,8 +31,9 @@ const toPrev = () => {
     return (
         <div>
             <div className={css.episodes}>
-                {episodes.map(episode => <Episode key={episode.id} episode={episode} />)}
+                {episodes.map(episode => <Episode key={episode.id} episode={episode}/>)}
             </div>
+
 
             <div style={{display:'flex', position:'absolute',top:'90px',left:'20px'}}>
                 <button onClick={toPrev} disabled={!prev}>prev</button>

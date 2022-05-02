@@ -1,5 +1,6 @@
 
 import css from './character.module.css'
+
 const Character = ({character}) => {
  const {id,name,status,species,gender,image} = character
 
