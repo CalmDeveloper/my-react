@@ -12,7 +12,14 @@ const getAll = createAsyncThunk(
 const locationSlice = createSlice({
     name:'locationSlice',
     initialState,
-    reducerse:{},
+    reducers:{
+        getCurentLocation:((state, action) => {
+            state.curentLocation=action.payload.name
+        }),
+        resetCurentEpisode:((state, action) => {
+            state.curentLocation=false
+        }),
+    },
     extraReducers:(builder)=> {
         builder
 .addCase(getAll.fulfilled, ((state, action) => {
@@ -26,8 +33,8 @@ const locationSlice = createSlice({
 }
 })
 
-const {reducer:locationReducer,actions} = locationSlice;
+const {reducer:locationReducer,actions:{getCurentLocation,resetCurentEpisode}} = locationSlice;
 
-const  locationActions={getAll}
+const  locationActions={getAll,getCurentLocation,resetCurentEpisode}
 
 export {locationReducer,locationActions};

@@ -2,7 +2,7 @@ import css from './header.module.css'
 import {useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 const Header = () => {
-    const {curentEpisode} = useSelector(state =>state.episodes )
+    const {curentEpisode,curentLocation} = useSelector(state =>state.episodes )
     return (
         <div className={css.header}>
             <div className={css.nav}>
@@ -12,6 +12,7 @@ const Header = () => {
             </div>
           <h1>Rick and morty </h1>
             {curentEpisode && <h2 style={{color:'red'}}><span style={{color:'white'}}>Episode:</span> {curentEpisode}</h2>}
+            {curentLocation && <h2 style={{color:'red'}}><span style={{color:'white'}}>Episode:</span> {curentLocation}</h2>}
         </div>
     );
 };

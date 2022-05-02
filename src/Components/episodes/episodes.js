@@ -4,13 +4,14 @@ import {episodeActions} from "../../redux";
 import {Episode} from "../episode/episode";
 import css from './episodes.module.css'
 import {useSearchParams} from "react-router-dom";
+import {locationActions} from "../../redux/slices/locationSlice";
 
 
 
 const Episodes = () => {
     const {episodes,prev,next} =  useSelector(state => state.episodes)
     const  dispatch  = useDispatch()
-
+dispatch(locationActions.resetCurentEpisode())
     const [query, setQuery] = useSearchParams({page: '1'});
     useEffect(() => {
             dispatch(episodeActions.getAll({page:query.get('page')}))

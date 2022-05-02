@@ -1,7 +1,9 @@
 import {Locations} from "../../Components";
 
 
+
 const LocationPage = () => {
+
 
     return (
         <div>

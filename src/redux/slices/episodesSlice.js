@@ -17,7 +17,10 @@ const mortySlice = createSlice({
     reducers: {
         getCurentEpisode:((state, action) => {
             state.curentEpisode=action.payload.episodeName
-        })
+        }),
+        resetCurentEpisode:((state, action) => {
+            state.curentEpisode=false
+        }),
     },
     extraReducers: (builder) => {
         builder
@@ -33,10 +36,10 @@ const {info:{count, pages, next, prev},results} = action.payload
     }
 })
 
-const {reducer:mortyReducer,actions:{getCurentEpisode}} = mortySlice
+const {reducer:mortyReducer,actions:{getCurentEpisode,resetCurentEpisode}} = mortySlice
 
 const episodeActions = {
-    getAll,getCurentEpisode
+    getAll,getCurentEpisode,resetCurentEpisode
 }
 export {mortyReducer,episodeActions};
 
