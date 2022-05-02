@@ -3,19 +3,22 @@ import {useEffect, useState} from "react";
 import {Character} from "../character/character";
 import {characterService} from "../../services";
 import css from './characters.module.css'
+import {useDispatch, useSelector} from "react-redux";
+
 
 const Characters = () => {
     const {state} = useLocation()
     const [query, setQuery] = useSearchParams({page: '1'});
    const [characters,setCharacters] =  useState([])
-
+    const dispatch = useDispatch()
 useEffect(() => {
     if (state){
         characterService.getByCharacterList(state).then(({data}) => setCharacters(data))
     }
     else
     {
-        characterService.getAll({page: query.get('page')}).then(({data}) => setCharacters(data.results))
+        characterService.getAll({page: query.get('page')}).then(({data}) =>
+            setCharacters(data.results))
 
     }
 },[query])
@@ -32,14 +35,15 @@ useEffect(() => {
     }
 
 
+
     return (
         <div>
             <div className={css.characters}>
                 {characters.map(character => <Character character={character} key={character.id}/>)}
             </div>
             <div style={{display:'flex', position:'absolute',top:'90px',left:'20px'}}>
-                <button onClick={toPrev}>prev</button>
-                <button onClick={toNext}>next</button>
+                <button onClick={toPrev} disabled={state}>prev</button>
+                <button onClick={toNext} disabled={state}>next</button>
             </div>
         </div>
 

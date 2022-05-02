@@ -1,0 +1,6 @@
+.locations{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 13px;
+    column-gap: 13px;
+}

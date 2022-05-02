@@ -1,0 +1,20 @@
+.location{
+    width: 288px;
+    height: 140px;
+    background-color: #eeb8b8;
+    border: yellow solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.location button{margin-top: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.location button:hover{
+    background: black;
+    color: white;
+}
+
