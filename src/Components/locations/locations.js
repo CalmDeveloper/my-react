@@ -4,15 +4,22 @@ import {locationActions} from "../../redux/slices/locationSlice";
 import {useSearchParams} from "react-router-dom";
 import {Location} from "../location/location";
 import css from './locations.module.css'
+import {episodeActions} from "../../redux";
 
 const Locations = () => {
     const dispatch = useDispatch()
     const [query,setQuery] = useSearchParams({page:'1'});
     const {prev,next,locations} = useSelector(state => state.locations)
+    const {curentEpisode} = useSelector(state => state.episodes)
 
     useEffect(() => {
-        dispatch(locationActions.getAll({page:query.get('page')}))
-    },[query])
+        if (curentEpisode){
+            dispatch(episodeActions.resetCurentEpisode())
+        }else {
+            dispatch(locationActions.getAll({page:query.get('page')}))
+        }
+
+    },[query,curentEpisode])
     const toPrev = () => {
       let Prevpage = query.get('page')
         Prevpage=+Prevpage-1

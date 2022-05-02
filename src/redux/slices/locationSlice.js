@@ -16,7 +16,7 @@ const locationSlice = createSlice({
         getCurentLocation:((state, action) => {
             state.curentLocation=action.payload.name
         }),
-        resetCurentEpisode:((state, action) => {
+        resetCurentLocation:((state, action) => {
             state.curentLocation=false
         }),
     },
@@ -29,12 +29,13 @@ const locationSlice = createSlice({
         state.next = next
         state.prev = prev
         state.locations = results
+    state.curentLocation=false
     }))
 }
 })
 
-const {reducer:locationReducer,actions:{getCurentLocation,resetCurentEpisode}} = locationSlice;
+const {reducer:locationReducer,actions:{getCurentLocation,resetCurentLocation}} = locationSlice;
 
-const  locationActions={getAll,getCurentLocation,resetCurentEpisode}
+const  locationActions={getAll,getCurentLocation,resetCurentLocation}
 
 export {locationReducer,locationActions};

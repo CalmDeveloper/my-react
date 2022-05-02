@@ -8,14 +8,21 @@ import {locationActions} from "../../redux/slices/locationSlice";
 
 
 
+
 const Episodes = () => {
     const {episodes,prev,next} =  useSelector(state => state.episodes)
+    const {curentLocation} =  useSelector(state => state.locations)
     const  dispatch  = useDispatch()
-dispatch(locationActions.resetCurentEpisode())
     const [query, setQuery] = useSearchParams({page: '1'});
+
     useEffect(() => {
+        if (curentLocation){
+            dispatch(locationActions.resetCurentLocation())
+        }
+        else {
             dispatch(episodeActions.getAll({page:query.get('page')}))
-    },[query])
+        }
+    },[query,curentLocation])
 
 const toPrev = () => {
     let prevPage =  query.get('page');

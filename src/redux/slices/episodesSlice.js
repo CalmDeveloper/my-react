@@ -16,7 +16,7 @@ const mortySlice = createSlice({
     initialState,
     reducers: {
         getCurentEpisode:((state, action) => {
-            state.curentEpisode=action.payload.episodeName
+            state.curentEpisode=action.payload.name
         }),
         resetCurentEpisode:((state, action) => {
             state.curentEpisode=false

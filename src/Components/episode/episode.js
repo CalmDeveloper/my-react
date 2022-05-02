@@ -2,12 +2,14 @@ import css from './episode.module.css'
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {episodeActions} from "../../redux";
+import {locationActions} from "../../redux/slices/locationSlice";
 
 const Episode = ({episode:{id, name, air_date, episode, characters}}) => {
    const dispatch =  useDispatch()
     const navigate =  useNavigate()
     const toSingleOpisode = () => {
-        dispatch(episodeActions.getCurentEpisode({episodeName:name}))
+        dispatch(locationActions.resetCurentLocation)
+        dispatch(episodeActions.getCurentEpisode({name}))
         navigate(`/characters`,{state:characters})
     }
 
