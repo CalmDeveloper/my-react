@@ -1,8 +1,10 @@
 import './App.css';
-import {MainLayout} from "./layouts/mainLayout/mainLayout";
 import {Navigate,Route,Routes} from 'react-router-dom'
-import {MoviesListPage} from "./pages/MoviesListPage";
-import {NotFoundPage} from "./pages/NotFoundPage";
+
+import {MainLayout} from "./layouts";
+import {MoviesListPage} from "./pages";
+import {NotFoundPage} from "./pages";
+import {MoviePage} from "./pages/MoviePage/MoviePage";
 
 function App() {
   return (
@@ -10,7 +12,7 @@ function App() {
      <Route path={'/'} element={<MainLayout/>}>
        <Route index  element={<Navigate to={'movies'}/>}/>
          <Route path={'movies'} element={<MoviesListPage/>}/>
-
+         <Route path={'movie'} element={<MoviePage/>}/>
          <Route path={'*'} element={<NotFoundPage/>}/>
      </Route>
    </Routes>

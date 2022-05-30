@@ -1,0 +1,23 @@
+.header{
+    height: 120px;
+    background-color: #252525;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 13px;
+    flex-direction: column;
+
+}
+
+
+.nav a{
+
+    text-decoration: none;
+    color: snow;
+    font-size: 20px;
+}
+
+.nav a[class='active']{
+    color: red;
+}
