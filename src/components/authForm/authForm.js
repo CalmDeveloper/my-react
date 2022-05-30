@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, useParams, useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {userService} from "../../services";
 import {authActions} from "../../redux";
 
@@ -13,6 +13,8 @@ const AuthForm = () => {
     const [errors, setErrors] = useState(null);
 
     const {pathname, state} = useLocation();
+
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -35,6 +37,10 @@ const AuthForm = () => {
             setErrors(e.response.data)
         }
     };
+
+
+
+
 
     return (
         <form onSubmit={handleSubmit(submit)}>
