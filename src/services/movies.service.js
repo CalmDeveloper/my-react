@@ -4,7 +4,8 @@ import {urls} from "../constants/urls";
 
 const moviesService = {
 
-    getAllMovie:(api_key,page=1)=> axiosService.get(urls.movie,{params:{api_key,page}})
+    getAllMovie:(page=1)=> axiosService.get(urls.movie,{params:{page}}),
+    getGenres:()=> axiosService.get(urls.genres)
 }
 
 export {moviesService};

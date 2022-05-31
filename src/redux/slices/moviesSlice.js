@@ -1,13 +1,19 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {moviesService} from '../../services/movies.service'
-const initialState = {page:null, movies:[],curentMovies:null}
+const initialState = {page:null, movies:null,curentMovies:null, genres:[]}
 
 const getAll = createAsyncThunk(
     "moviesSlice/getAll",
-    async ({api_key,page})=>{
+    async ({page})=>{
 
-        const {data} =   await  moviesService.getAllMovie(api_key,page)
-
+        const {data} =   await  moviesService.getAllMovie(page)
+        return data
+    }
+)
+const getGenres = createAsyncThunk(
+    "moviesSlice/getGenres",
+    async ()=>{
+        const {data} =   await  moviesService.getGenres()
         return data
     }
 )
@@ -31,12 +37,15 @@ const moviesSlice = createSlice({
                 state.movies = results
                 state.curentMovies=false
             }))
+            .addCase(getGenres.fulfilled, ((state, action) => {
+                state.genres = action.payload.genres
+            }))
     }
 })
 
 const {reducer:moviesReducer,actions:{getCurentMovies,resetCurentMovies}} = moviesSlice
 
 const moviesActions = {
-    getAll,resetCurentMovies,getCurentMovies
+    getAll,resetCurentMovies,getCurentMovies, getGenres
 }
 export {moviesReducer,moviesActions};

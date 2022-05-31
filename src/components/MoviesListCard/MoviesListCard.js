@@ -1,6 +1,5 @@
 import css from './MoviesListCard.module.css'
 import {useEffect} from "react";
-import {api_key} from "../../constants/urls";
 import {useDispatch, useSelector} from "react-redux";
 import {moviesActions} from "../../redux";
 import {useSearchParams} from "react-router-dom";
@@ -14,8 +13,8 @@ const dispatch = useDispatch()
     const {movies} =  useSelector(state => state.movies)
     const [query, setQuery] = useSearchParams({page: '1'});
     useEffect(() => {
-dispatch(moviesActions.getAll({api_key,page:query.get('page')}))
-
+dispatch(moviesActions.getAll({page:query.get('page')}))
+        dispatch(moviesActions.getGenres())
     },[query])
 
     const toPrev = () => {
@@ -30,7 +29,7 @@ dispatch(moviesActions.getAll({api_key,page:query.get('page')}))
     }
     return (
         <div>
-            <div style={{display:'flex', position:'absolute',top:'90px',left:'20px'}}>
+            <div style={{display:'flex', position:'absolute',top:'10px',left:'100px'}}>
                 <button onClick={toPrev}>prev</button>
                 <button onClick={toNext}>next</button>
             </div>
