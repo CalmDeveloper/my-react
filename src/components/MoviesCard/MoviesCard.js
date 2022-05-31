@@ -16,6 +16,7 @@ const MoviesCard = ({movie}) => {
     return (
         <div className={css.movie} onClick={movieInfo}>
             <img src={link} alt={title}/>
+
             <div className={css.wrap}><h3>{title}</h3></div>
         </div>
     );

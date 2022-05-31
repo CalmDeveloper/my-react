@@ -2,7 +2,11 @@ import {useLocation} from "react-router-dom";
 import {miniPoster} from "../../constants/urls";
 import css from './MovieInfo.module.css'
 import {useSelector} from "react-redux";
-import {RatingContainer, StarRating} from "../StarRating/StarRating ";
+import {StarRating} from "../StarRating/StarRating ";
+
+
+
+
 
 
 
@@ -26,7 +30,7 @@ const MovieInfo = () => {
 
             <div className={css.wraper}>
                 <h1>{title}</h1>
-                <RatingContainer/>
+                <StarRating/>
                 <h2>{adult? <span>Category: <span className={css.color}>adult</span></span> : <span>Category:  <span className={css.color}>kids</span></span>}</h2>
                 <h2>Release date:  <span className={css.color}>{release_date}</span></h2>
                 <h2>Original language: <span className={css.color}>{original_language}</span></h2>
