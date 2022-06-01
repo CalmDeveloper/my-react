@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import css from './star.css'
 export const StarRating = ({vote_average}) => {
-    const [rating, setRating] = useState(vote_average);
+
+    const [rating, setRating] = useState(null);
+  useEffect(() => {
+      setRating(vote_average)
+  },[vote_average])
+
     const [hover, setHover] = useState(0);
     return (
         <div className="css">
