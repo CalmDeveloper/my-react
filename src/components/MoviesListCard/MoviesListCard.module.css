@@ -3,5 +3,19 @@
     flex-wrap: wrap;
     column-gap: 15px;
     row-gap: 5px;
-    justify-content: center;
+    position: absolute;
+    top: 50px;
+    left: 310px;
+    z-index: 1;
+}
+.navigation{
+
+    display: flex;
+    position: fixed;
+    top: 700px;
+    left: 100px;
+    z-index: 3;
+}
+.navigation button{
+    margin: 5px;
 }

@@ -1,46 +1,49 @@
-import {useLocation} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {miniPoster} from "../../constants/urls";
 import css from './MovieInfo.module.css'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {StarRating} from "../StarRating/StarRating ";
-
-
-
-
-
+import {useEffect} from "react";
+import {moviesActions} from "../../redux";
 
 
 const MovieInfo = () => {
-   const {state} =  useLocation()
-    const   {adult,genre_ids,original_language,
-        overview,poster_path,release_date,title,vote_average} = state
-    const link = (miniPoster+poster_path)
-    const {genres} = useSelector(state => state.movies)
-    const dirtyGenresForOneMovie = genre_ids.map(value => genres.find(genre => genre.id === value));
+    const {state} = useLocation()
+    const {id} = useParams()
+    const dispatch = useDispatch()
+    useEffect(() => {
+        if (id) {
+            dispatch(moviesActions.getDetails({id}))
+        } else {
+            const {id} = state
+            dispatch(moviesActions.getDetails({id}))
+        }
 
-    const genresForOneMovie = dirtyGenresForOneMovie.map(value =>value.name);
-  const genresOfMovie = genresForOneMovie.toString().replaceAll(',', ', ')
-
-
-
+    }, [id])
+    const {details, genresOfOneMovie} = useSelector(state => state.movies)
+    const {
+        tagline, revenue, budget, title, vote_average,
+        release_date, original_language, overview, poster_path
+    } = details
+    const link = (miniPoster + poster_path)
+    console.log(vote_average)
     return (
         <div className={css.movieInfo}>
-
             <div className={css.poster}><img src={link} alt={title}/></div>
-
             <div className={css.wraper}>
                 <h1>{title}</h1>
-                <StarRating vote_average={vote_average}/>
-                <h2>{adult? <span>Category: <span className={css.color}>adult</span></span> : <span>Category:  <span className={css.color}>kids</span></span>}</h2>
-                <h2>Release date:  <span className={css.color}>{release_date}</span></h2>
-                <h2>Original language: <span className={css.color}>{original_language}</span></h2>
-                <h2>Genres: <span className={css.color}>{genresOfMovie}</span></h2>
-             <h1>Description.</h1>
-                <h2>{overview}</h2>
+                {{vote_average} && <StarRating vote_average={vote_average}/>}
+                {{genresOfOneMovie} && <h2>Genres: <span className={css.color}>{genresOfOneMovie}</span></h2>}
+                {{release_date} && <h2>Release date: <span className={css.color}>{release_date}</span></h2>}
+                {{budget} && <h2>Budget: <span className={css.color}>{budget}</span></h2>}
+                {{revenue} && <h2>Profit: <span className={css.color}>{revenue}</span></h2>}
+                {{original_language} &&
+                    <h2>Original language: <span className={css.color}>{original_language}</span></h2>}
+                {{tagline} && <div className={css.tagline}>{tagline}</div>}
+                {{overview} && <h1>Description</h1>}
+                {{overview} && <h2>{overview}</h2>}
             </div>
-
         </div>
-
     );
 };
 

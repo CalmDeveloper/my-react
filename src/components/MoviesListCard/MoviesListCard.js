@@ -29,7 +29,7 @@ dispatch(moviesActions.getAll({page:query.get('page')}))
     }
     return (
         <div>
-            <div style={{display:'flex', position:'absolute',top:'10px',left:'100px'}}>
+            <div className={css.navigation}>
                 <button onClick={toPrev}>prev</button>
                 <button onClick={toNext}>next</button>
             </div>

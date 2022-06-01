@@ -5,12 +5,12 @@ import {moviesActions} from "../../redux";
 import {useNavigate} from "react-router-dom";
 import {StarRatingForAllMovies} from "../StarRatingForAllMovies/StarRatingForAllMovies";
 const MoviesCard = ({movie}) => {
-    const {title,backdrop_path,vote_average,poster_path}= movie
+    const {title,vote_average,poster_path,id}= movie
     const dispatch = useDispatch()
    const navigate =  useNavigate()
     const movieInfo = () => {
         dispatch(moviesActions.getCurentMovies({title}))
-        navigate(`/movie`,{state:movie})
+        navigate(`/movie/${id}`,{state:id})
     }
     const link = (miniPoster+poster_path)
 

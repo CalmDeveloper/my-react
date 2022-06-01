@@ -1,7 +1,14 @@
-.genres{
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*width: 280px;*/
-    /*height: 720px;*/
-    /*border: black solid 1px;*/
+.genres {
+    display: flex;
+    flex-direction: column;
+    width: 286px;
+    height: 710px;
+    background-color: #252525;
+    border: transparent solid 1px;
+    position: fixed;
+    color: white;
+    top: 40px;
+    left: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
