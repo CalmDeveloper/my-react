@@ -3,6 +3,7 @@ import css from './Movie.module.css'
 import {useDispatch} from "react-redux";
 import {moviesActions} from "../../redux";
 import {useNavigate} from "react-router-dom";
+import {StarRatingForAllMovies} from "../StarRatingForAllMovies/StarRatingForAllMovies";
 const MoviesCard = ({movie}) => {
     const {title,backdrop_path,vote_average,poster_path}= movie
     const dispatch = useDispatch()
@@ -16,8 +17,10 @@ const MoviesCard = ({movie}) => {
     return (
         <div className={css.movie} onClick={movieInfo}>
             <img src={link} alt={title}/>
-
-            <div className={css.wrap}><h3>{title}</h3></div>
+            <div className={css.wrap}>
+                <h3>{title}</h3>
+              <StarRatingForAllMovies vote_average={vote_average}/>
+            </div>
         </div>
     );
 };

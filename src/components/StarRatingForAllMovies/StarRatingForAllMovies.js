@@ -1,6 +1,7 @@
+
 import React, { useState } from "react";
 import css from './star.css'
-export const StarRating = ({vote_average}) => {
+export const StarRatingForAllMovies = ({vote_average}) => {
     const [rating, setRating] = useState(vote_average);
     const [hover, setHover] = useState(0);
     return (
@@ -13,7 +14,8 @@ export const StarRating = ({vote_average}) => {
                         type="button"
                         key={index}
                         className={index <= (hover || rating) ? "on" : "off"}
-                        style={{backgroundColor:'transparent', border:'none', outline:"none"}}
+                        style={{backgroundColor:'transparent', border:'none',
+                            outline:"none",cursor:"pointer",padding:0, position:"relative", bottom:'5px'}}
                         // onClick={() => setRating(index)}
                         // onMouseEnter={() => setHover(index)}
                         // onMouseLeave={() => setHover(rating)}
@@ -25,4 +27,3 @@ export const StarRating = ({vote_average}) => {
         </div>
     );
 };
-

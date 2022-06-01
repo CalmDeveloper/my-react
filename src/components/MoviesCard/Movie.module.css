@@ -12,25 +12,29 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     width: 100%;
-    height: 86%;
+    height: 84%;
 }
-.movie div{
-    height: 45px;
+.wrap{
+    height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex-direction: column;
     text-align: center;
     margin-left: 5px;
     margin-right: 5px;
 }
 
+h3{margin: 0;
+    padding: 0;
+}
 
 .movie:hover{
     cursor: pointer;
     width: 288px;
     height: 353px;
-    background-color: #252525;
+    background-color: #187dbb;
     color: red;
     transition:  0.2s
 }

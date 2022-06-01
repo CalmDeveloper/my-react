@@ -30,7 +30,7 @@ const MovieInfo = () => {
 
             <div className={css.wraper}>
                 <h1>{title}</h1>
-                <StarRating/>
+                <StarRating vote_average={vote_average}/>
                 <h2>{adult? <span>Category: <span className={css.color}>adult</span></span> : <span>Category:  <span className={css.color}>kids</span></span>}</h2>
                 <h2>Release date:  <span className={css.color}>{release_date}</span></h2>
                 <h2>Original language: <span className={css.color}>{original_language}</span></h2>
