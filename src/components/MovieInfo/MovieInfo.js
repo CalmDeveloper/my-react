@@ -24,6 +24,7 @@ const MovieInfo = () => {
     }, [id])
 
     const {details, genresOfOneMovie} = useSelector(state => state.movies)
+
     const {
         tagline, revenue, budget, title, vote_average,
         release_date, original_language, overview, poster_path
