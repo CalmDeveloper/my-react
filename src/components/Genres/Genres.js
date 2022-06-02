@@ -1,31 +1,46 @@
 import css from './Genres.module.css'
-import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {useForm} from "react-hook-form";
+import {moviesActions} from "../../redux";
+import {SearchBar} from "../Search bar/SearchBar";
 
 const Genres = () => {
-const x = (v) => {
-console.log(v)
+    const {register, handleSubmit} = useForm();
+const dispatch = useDispatch()
+
+const getGenres = (arrOfGenrs) => {
+    dispatch(moviesActions.genresForSearch({arrOfGenrs}))
 }
     return (
         <div className={css.genres}>
-            {/*{id: 28, name: 'Action'}*/}
-            {/*1: {id: 12, name: 'Adventure'}*/}
-            {/*2: {id: 16, name: 'Animation'}*/}
-            {/*3: {id: 35, name: 'Comedy'}*/}
-            {/*4: {id: 80, name: 'Crime'}*/}
-            {/*5: {id: 99, name: 'Documentary'}*/}
-            {/*6: {id: 18, name: 'Drama'}*/}
-            {/*7: {id: 10751, name: 'Family'}*/}
-            {/*8: {id: 14, name: 'Fantasy'}*/}
-            {/*9: {id: 36, name: 'History'}*/}
-            {/*10: {id: 27, name: 'Horror'}*/}
-            {/*11: {id: 10402, name: 'Music'}*/}
-            {/*12: {id: 9648, name: 'Mystery'}*/}
-            {/*13: {id: 10749, name: 'Romance'}*/}
-            {/*14: {id: 878, name: 'Science Fiction'}*/}
-            {/*15: {id: 10770, name: 'TV Movie'}*/}
-            {/*16: {id: 53, name: 'Thriller'}*/}
-            {/*17: {id: 10752, name: 'War'}*/}
-            {/*18: {id: 37, name: 'Western'}*/}
+            <div className={css.genresBar}>
+                <ul>
+                    <h3 className={css.genresBarTopic}>Select genres</h3>
+                    <form onSubmit={handleSubmit(getGenres)}>
+                        <li><label>Action: <input type="checkbox" {...register('arrOfGenrs')} value={28}/></label></li>
+                        <li><label>Adventure: <input type="checkbox" {...register('arrOfGenrs')} value={12}/></label></li>
+                        <li><label>Animation: <input type="checkbox" {...register('arrOfGenrs')} value={16}/></label></li>
+                        <li><label>Comedy: <input type="checkbox" {...register('arrOfGenrs')} value={35}/></label></li>
+                        <li><label>Crime: <input type="checkbox" {...register('arrOfGenrs')} value={80}/></label></li>
+                        <li><label>Documentary: <input type="checkbox" {...register('arrOfGenrs')} value={99}/></label></li>
+                        <li><label>Drama: <input type="checkbox" {...register('arrOfGenrs')} value={18}/></label></li>
+                        <li><label>Family: <input type="checkbox" {...register('arrOfGenrs')} value={10751}/></label></li>
+                        <li><label>Fantasy: <input type="checkbox" {...register('arrOfGenrs')} value={14}/></label></li>
+                        <li><label>History: <input type="checkbox" {...register('arrOfGenrs')} value={36}/></label></li>
+                        <li><label>Horror: <input type="checkbox" {...register('arrOfGenrs')} value={27}/></label></li>
+                        <li><label>Music: <input type="checkbox" {...register('arrOfGenrs')} value={10402}/></label></li>
+                        <li><label>Mystery: <input type="checkbox" {...register('arrOfGenrs')} value={9648}/></label></li>
+                        <li><label>Romance: <input type="checkbox" {...register('arrOfGenrs')} value={10749}/></label></li>
+                        <li><label>Science Fiction: <input type="checkbox" {...register('arrOfGenrs')} value={878}/></label></li>
+                        <li><label>TV Movie': <input type="checkbox" {...register('arrOfGenrs')} value={10770}/></label></li>
+                        <li><label>Thriller: <input type="checkbox" {...register('arrOfGenrs')} value={53}/></label></li>
+                        <li><label>War: <input type="checkbox" {...register('arrOfGenrs')} value={10752}/></label></li>
+                        <li><label>Western: <input type="checkbox" {...register('arrOfGenrs')} value={37}/></label></li>
+                        <button>Confirm genres</button>
+                    </form>
+                </ul>
+            </div>
+            <SearchBar/>
         </div>
     );
 };

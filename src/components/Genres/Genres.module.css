@@ -12,3 +12,32 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
+.genresBar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.genresBar li {
+    font-size: 22px;
+
+}
+.genresBar li:hover {
+   color: red;
+}
+
+.genresBar button{
+    margin-top: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.genresBar button:hover{
+  background-color: #187dbb;
+    color: white;
+}
+.genresBarTopic{
+margin-bottom: 5px;
+    color: #ffaa00;
+}

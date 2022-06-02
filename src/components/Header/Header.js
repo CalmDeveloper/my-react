@@ -10,9 +10,7 @@ const Header = () => {
         <div className={css.header}>
             <div className={css.nav}>
                 <NavLink to={'/movies'} style={{position:"absolute", top:'10px',left:'20px'}}>Movies</NavLink>
-
             </div>
-
             {!curentMovies && <h1>The world of movies</h1>}
             {curentMovies && <h2 style={{color:'red'}}>
           {curentMovies}</h2>}
