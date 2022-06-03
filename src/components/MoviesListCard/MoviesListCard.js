@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {moviesActions} from "../../redux";
 import {MoviesCard} from "../MoviesCard/MoviesCard";
 import {useSearchParams} from "react-router-dom";
+import {SearchResultMoviesCard} from "../SearchResultMoviesCard/SearchResultMoviesCard";
 
 
 const MoviesListCard = () => {
@@ -13,18 +14,18 @@ const dispatch = useDispatch()
     const [query, setQuery] = useSearchParams({page: '1'});
 
     useEffect(() => {
-        // if (keywords){
-        //     dispatch(moviesActions.searchByKeywords({parametr:keywords}))
-        // }
-        // else {
+        if (keywords){
+            dispatch(moviesActions.searchByKeywords({parametr:keywords,page:query.get('page')}))
+        }
+        else {
             dispatch(moviesActions.getAll({page:query.get('page'),
                 with_genres:genresArrForSearch.toString()}))
-        // }
+        }
 
-    },[query,genresArrForSearch])
+    },[query,genresArrForSearch,keywords])
 
-console.log(movies)
-   useCallback(() => {dispatch(moviesActions.getGenres())}, []);
+
+    useCallback(() => {dispatch(moviesActions.getGenres())}, []);
 
     const toPrev = () => {
         let prevPage =  query.get('page');
@@ -42,7 +43,8 @@ console.log(movies)
                 <button onClick={toPrev} disabled={currentPage<=1 && true}>Previous page</button>
                 <button onClick={toNext} disabled={currentPage>=total_pages && true}>Next page</button>
             </div>
-            <div className={css.movies}>{movies && movies.map(movie => <MoviesCard key={movie.id} movie={movie}/>)}</div>
+            {!keywords && <div className={css.movies}>{movies && movies.map(movie => <MoviesCard key={movie.id} movie={movie}/>)}</div>}
+            {keywords && <div className={css.movies}>{movies && movies.map(movie => <SearchResultMoviesCard key={movie.id} movie={movie}/>)}</div>}
         </div>
     );
 };

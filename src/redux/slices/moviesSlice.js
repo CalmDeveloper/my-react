@@ -14,8 +14,8 @@ const getDetails = createAsyncThunk(
 
 const searchByKeywords = createAsyncThunk(
     "moviesSlice/searchByKeywords",
-    async ({parametr}) => {
-        const {data} = await moviesService.searchByKeywords(parametr)
+    async ({parametr,page}) => {
+        const {data} = await moviesService.searchByKeywords(parametr,page)
         return data
     }
 )
@@ -51,6 +51,9 @@ const moviesSlice = createSlice({
         getKeywords: ((state, action) => {
             state.keywords =  action.payload.keywords.keywords
         }),
+        resetKeywords: ((state, action) => {
+            state.keywords=false
+        }),
     },
     extraReducers: (builder) => {
         builder
@@ -77,11 +80,6 @@ const moviesSlice = createSlice({
                 state.currentPage = page
                 state.total_pages = total_pages
                 state.movies = results
-
-
-
-
-
             }))
     }
 })

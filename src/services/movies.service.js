@@ -8,8 +8,8 @@ const moviesService = {
         axiosService.get(urls.movie,{params:{page,with_genres}}),
     getGenres:()=> axiosService.get(urls.genres),
     details:(id)=> axiosService.get(`${urls.details}/${id}`),
-    searchByKeywords:(parametr)=>
-        axiosService.get(urls.keywords,{params: {query:parametr}})
+    searchByKeywords:(parametr,page)=>
+        axiosService.get(urls.keywords,{params: {query:parametr,page}})
 }
 
 

@@ -33,7 +33,8 @@ const MovieInfo = () => {
 
     return (
         <div className={css.movieInfo}>
-            <div className={css.poster}><img src={link} alt={title}/></div>
+            <div className={css.poster}><img src={link}  onError={(e)=>{ if (e.target.src !== {link})
+            { e.target.onerror = null; e.target.src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"; } }}alt={title}/></div>
             <div className={css.wraper}>
                 <h1>{title}</h1>
                 <StarRating vote_average={vote_average}/>

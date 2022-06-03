@@ -16,7 +16,8 @@ const MoviesCard = ({movie}) => {
 
     return (
         <div className={css.movie} onClick={movieInfo}>
-            <img src={link} alt={title}/>
+            <img src={link}   onError={(e)=>{ if (e.target.src !== {link})
+            { e.target.onerror = null; e.target.src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"; } }} alt={title} />
             <div className={css.wrap}>
                 <h3>{title}</h3>
               <StarRatingForAllMovies vote_average={vote_average}/>
