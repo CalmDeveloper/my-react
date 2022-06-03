@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {StarRating} from "../StarRating/StarRating ";
 import {useEffect} from "react";
 import {moviesActions} from "../../redux";
-import {buildTimeValue} from "@testing-library/user-event/dist/utils";
+
 
 
 
@@ -63,7 +63,7 @@ const imdbLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB
                 {(revenue !== 0) && <div className={css.mediumText}>Profit: <span className={css.color}>{revenue}</span></div>}
                 <div className={css.mediumText}>Original language: <span className={css.color}>{original_language}</span></div>
                 <div className={css.tagline}>{tagline}</div>
-                <h2>Description</h2>
+
                 <div className={css.overview}>{overview}</div>
             </div>
         </div>
