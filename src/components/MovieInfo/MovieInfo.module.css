@@ -14,31 +14,48 @@
    height: 500px;
 }
 .wraper{
+    display: flex;
+flex-direction: column;
+    align-items: flex-start;
     padding-top: 50px;
 padding-left: 50px;
     padding-right: 50px;
 }
 
-.wraper h1,h2{
-    display: flex;
-    justify-content: flex-start;
-}
-h2{line-height: normal;
-    font-weight: normal;
-}
+
 h1{
+    margin-bottom: 5px;
     color: blue;
+    padding-bottom: 0;
 }
 
 .color{
-    color: #ffaa00;
-
+  font-family: "Calibri Light";
     font-weight: bolder;
-}
+    color: orange;
+   }
 
 .tagline{
     font-family: "Bookman Old Style";
-    font-size: larger;
+    font-size: 24px;
     color: #8a2928;
+    margin-top: 20px;
 
+}
+
+.mediumText {
+font-size: 22px;
+    padding-top: 5px;
+    font-family: italic;
+}
+.rating{
+    display: flex;
+}
+.rating img{
+    margin-left: 15px;
+    height: 25px;
+}
+.overview{
+    font-family: "Constantia";
+    font-size: 24px;
 }

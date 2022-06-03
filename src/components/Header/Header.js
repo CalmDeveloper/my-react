@@ -18,7 +18,6 @@ const Header = () => {
                 <NavLink to={'/movies'} style={{position:"absolute", top:'10px',left:'20px'}} onClick={()=>resetAll()}>Movies</NavLink>
             </div>
                  <h1>The world of movies</h1>
-
         </div>
     );
 };

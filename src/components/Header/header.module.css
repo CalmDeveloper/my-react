@@ -7,9 +7,13 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0;
+    margin-right: 0;
     z-index: 2;
+}
+.header h1{
+    padding: 0;
+    margin: 0;
 }
 
 

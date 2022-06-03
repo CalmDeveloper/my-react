@@ -21,15 +21,19 @@ const MovieInfo = () => {
             const {id} = state
             dispatch(moviesActions.getDetails({id}))
         }
-    }, [id])
+    }, [])
 
     const {details, genresOfOneMovie} = useSelector(state => state.movies)
 
     const {
         tagline, revenue, budget, title, vote_average,
-        release_date, original_language, overview, poster_path
+        release_date, original_language, overview, poster_path,imdb_id,production_countries,runtime
     } = details
+
+
     const link = (miniPoster + poster_path)
+    const imdbLink = `https://www.imdb.com/title/${imdb_id}/`;
+const imdbLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png'
 
     return (
         <div className={css.movieInfo}>
@@ -37,15 +41,17 @@ const MovieInfo = () => {
             { e.target.onerror = null; e.target.src=noFoundImage; } }} alt={title}/></div>
             <div className={css.wraper}>
                 <h1>{title}</h1>
-                <StarRating vote_average={vote_average}/>
-                <h2>Genres: <span className={css.color}>{genresOfOneMovie}</span></h2>
-                <h2>Release date: <span className={css.color}>{release_date}</span></h2>
-                { (budget!==0) && <h2>Budget: <span className={css.color}>{budget}</span></h2>}
-                { (revenue!==0) &&  <h2>Profit: <span className={css.color}>{revenue}</span></h2>}
-                <h2>Original language: <span className={css.color}>{original_language}</span></h2>
+                <div className={css.rating}><StarRating vote_average={vote_average}/> <a href={imdbLink}><img src={imdbLogo} alt="imdb logo"/></a></div>
+                <div className={css.mediumText}>Genres: <span className={css.color}>{genresOfOneMovie}</span></div>
+                <div className={css.mediumText}>Сountry: <span className={css.color}>{production_countries[0].name}</span></div>
+                <div className={css.mediumText}>Ran time: <span className={css.color}>{runtime} min</span></div>
+                <div className={css.mediumText}>Release date: <span className={css.color}>{release_date}</span></div>
+                { (budget!==0) && <div className={css.mediumText}>Budget: <span className={css.color}>{budget}</span></div>}
+                { (revenue!==0) &&  <div className={css.mediumText}>Profit: <span className={css.color}>{revenue}</span></div>}
+                <div className={css.mediumText}>Original language: <span className={css.color}>{original_language}</span></div>
                 <div className={css.tagline}>{tagline}</div>
-                <h1>Description</h1>
-                <h2>{overview}</h2>
+                <h2>Description</h2>
+                <div className={css.overview}>{overview}</div>
             </div>
         </div>
     );
