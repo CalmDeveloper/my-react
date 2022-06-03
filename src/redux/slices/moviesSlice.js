@@ -1,7 +1,9 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {moviesService} from '../../services/movies.service'
 
-const initialState = {currentPage: null, keywords:null, total_pages: null, movies: null, curentMovies: null, genres: [], details: {}, genresOfOneMovie: '',
+const initialState = {currentPage: null, keywords:null, total_pages: null,
+    movies: null, genres: [],
+    details: {}, genresOfOneMovie: '',
     genresArrForSearch:[]}
 
 const getDetails = createAsyncThunk(
@@ -39,12 +41,6 @@ const moviesSlice = createSlice({
     name: "moviesSlice",
     initialState,
     reducers: {
-        getCurentMovies: ((state, action) => {
-            state.curentMovies = action.payload.title
-        }),
-        resetCurentMovies: ((state, action) => {
-            state.curentMovies = false
-        }),
         genresForSearch: ((state, action) => {
             state.genresArrForSearch=action.payload.arrOfGenrs.arrOfGenrs
         }),
@@ -53,6 +49,9 @@ const moviesSlice = createSlice({
         }),
         resetKeywords: ((state, action) => {
             state.keywords=false
+        }),
+        resetGenresArrForSearch: ((state, action) => {
+            state.genresArrForSearch=false
         }),
     },
     extraReducers: (builder) => {
@@ -84,9 +83,11 @@ const moviesSlice = createSlice({
     }
 })
 
-const {reducer: moviesReducer, actions: {getCurentMovies, resetCurentMovies,genresForSearch,getKeywords}} = moviesSlice
+const {reducer: moviesReducer, actions: {genresForSearch,
+    getKeywords,resetKeywords,resetGenresArrForSearch}} = moviesSlice
 
 const moviesActions = {
-    getAll, resetCurentMovies, getCurentMovies, getGenres, getDetails,genresForSearch,getKeywords,searchByKeywords
+    getAll, getGenres, getDetails,genresForSearch,getKeywords
+    ,searchByKeywords,resetKeywords,resetGenresArrForSearch
 }
 export {moviesReducer, moviesActions};

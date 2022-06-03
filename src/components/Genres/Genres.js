@@ -9,6 +9,7 @@ const Genres = () => {
 const dispatch = useDispatch()
 
 const getGenres = (arrOfGenrs) => {
+    dispatch(moviesActions.resetKeywords())
     dispatch(moviesActions.genresForSearch({arrOfGenrs}))
 }
     return (

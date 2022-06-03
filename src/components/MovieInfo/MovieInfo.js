@@ -1,5 +1,5 @@
 import {useLocation, useParams} from "react-router-dom";
-import {miniPoster} from "../../constants/urls";
+import {miniPoster, noFoundImage} from "../../constants/urls";
 import css from './MovieInfo.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {StarRating} from "../StarRating/StarRating ";
@@ -34,14 +34,14 @@ const MovieInfo = () => {
     return (
         <div className={css.movieInfo}>
             <div className={css.poster}><img src={link}  onError={(e)=>{ if (e.target.src !== {link})
-            { e.target.onerror = null; e.target.src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"; } }}alt={title}/></div>
+            { e.target.onerror = null; e.target.src=noFoundImage; } }} alt={title}/></div>
             <div className={css.wraper}>
                 <h1>{title}</h1>
                 <StarRating vote_average={vote_average}/>
                 <h2>Genres: <span className={css.color}>{genresOfOneMovie}</span></h2>
                 <h2>Release date: <span className={css.color}>{release_date}</span></h2>
-                { ({budget}===0) && <h2>Budget: <span className={css.color}>{budget}</span></h2>}
-                { ({revenue}===0) &&  <h2>Profit: <span className={css.color}>{revenue}</span></h2>}
+                { (budget!==0) && <h2>Budget: <span className={css.color}>{budget}</span></h2>}
+                { (revenue!==0) &&  <h2>Profit: <span className={css.color}>{revenue}</span></h2>}
                 <h2>Original language: <span className={css.color}>{original_language}</span></h2>
                 <div className={css.tagline}>{tagline}</div>
                 <h1>Description</h1>

@@ -13,7 +13,7 @@ const SearchBar = () => {
     return (
         <div className={css.searchBar}>
             <form onSubmit={handleSubmit(getKeywords)}>
-               <input type="text" {...register('keywords')}placeholder={'name'}/>
+               <input type="text" {...register('keywords')} placeholder={'name'}/>
                 <button>Search</button>
             </form>
         </div>
