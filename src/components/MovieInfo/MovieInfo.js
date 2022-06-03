@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {StarRating} from "../StarRating/StarRating ";
 import {useEffect} from "react";
 import {moviesActions} from "../../redux";
+import {buildTimeValue} from "@testing-library/user-event/dist/utils";
 
 
 
@@ -27,8 +28,16 @@ const MovieInfo = () => {
 
     const {
         tagline, revenue, budget, title, vote_average,
-        release_date, original_language, overview, poster_path,imdb_id,production_countries,runtime
+        release_date, original_language, overview, poster_path,imdb_id,production_countries, runtime
     } = details
+    const objCountry = ()=>{
+        if (production_countries){return production_countries.map(value=>value.name)}else {
+            return 'unknown'
+        }
+    }
+
+    const country = objCountry().toString().replace(',', ', ')
+
 
 
     const link = (miniPoster + poster_path)
@@ -37,17 +46,21 @@ const imdbLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB
 
     return (
         <div className={css.movieInfo}>
-            <div className={css.poster}><img src={link}  onError={(e)=>{ if (e.target.src !== {link})
-            { e.target.onerror = null; e.target.src=noFoundImage; } }} alt={title}/></div>
+            <div className={css.poster}><img src={link} onError={(e) => {
+                if (e.target.src !== {link}) {
+                    e.target.onerror = null;
+                    e.target.src = noFoundImage;
+                }
+            }} alt={title}/></div>
             <div className={css.wraper}>
                 <h1>{title}</h1>
                 <div className={css.rating}><StarRating vote_average={vote_average}/> <a href={imdbLink}><img src={imdbLogo} alt="imdb logo"/></a></div>
                 <div className={css.mediumText}>Genres: <span className={css.color}>{genresOfOneMovie}</span></div>
-                <div className={css.mediumText}>Сountry: <span className={css.color}>{production_countries[0].name}</span></div>
+                {(country) && <div className={css.mediumText}>Сountry: <span className={css.color}>{country}</span></div>}
                 <div className={css.mediumText}>Ran time: <span className={css.color}>{runtime} min</span></div>
                 <div className={css.mediumText}>Release date: <span className={css.color}>{release_date}</span></div>
-                { (budget!==0) && <div className={css.mediumText}>Budget: <span className={css.color}>{budget}</span></div>}
-                { (revenue!==0) &&  <div className={css.mediumText}>Profit: <span className={css.color}>{revenue}</span></div>}
+                {(budget !== 0) && <div className={css.mediumText}>Budget: <span className={css.color}>{budget}</span></div>}
+                {(revenue !== 0) && <div className={css.mediumText}>Profit: <span className={css.color}>{revenue}</span></div>}
                 <div className={css.mediumText}>Original language: <span className={css.color}>{original_language}</span></div>
                 <div className={css.tagline}>{tagline}</div>
                 <h2>Description</h2>
