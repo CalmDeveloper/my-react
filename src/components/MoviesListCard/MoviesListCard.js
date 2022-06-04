@@ -27,7 +27,7 @@ const dispatch = useDispatch()
 
 
     useCallback(() => {dispatch(moviesActions.getGenres())}, []);
-    console.log(movies);
+
 
     const toPrev = () => {
         let prevPage =  query.get('page');

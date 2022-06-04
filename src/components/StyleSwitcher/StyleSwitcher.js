@@ -9,11 +9,9 @@ const StyleSwitcher = () => {
     const onToggle = () => {
         setIsToggled(!isToggled);
         if (isToggled){
-            console.log('0')
             document.body.style.color = 'black'
             document.body.style.background = 'white'
         }else{
-            console.log('1')
             document.body.style.background = '#1c3248'
             document.body.style.color = 'white'
         }
