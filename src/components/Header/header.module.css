@@ -4,14 +4,14 @@
     background-color: #262429;
     color: white;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     position: fixed;
     margin-left: 0;
     margin-right: 0;
     z-index: 2;
 }
-.header h1{
+.header> h1{
     padding: 0;
     margin: 0;
 }
@@ -25,5 +25,56 @@
 }
 
 .nav a[class='active']{
+    color: red;
+}
+
+.isLogin{
+    width: 23px;
+    height: 23px;
+    border: transparent solid 1px;
+    background-color: white;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.isLoginBar{
+    position: absolute;
+    right: 120px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    z-index: 6;
+}
+.logOutButton{
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    width: 50px;
+}
+.logOutButton:hover{
+    width: 52px;
+    color: red;
+}
+
+.loginButton{
+    position: absolute;
+    right: 120px;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    width: 50px;
+}
+.loginButton:hover{
+    width: 52px;
     color: red;
 }

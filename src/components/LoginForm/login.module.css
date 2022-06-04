@@ -1,0 +1,67 @@
+.login{
+    width: 360px;
+    height: 360px;
+    background-color: #102b3e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 15px;
+    position: absolute;
+    top: 200px;
+    z-index: 20;
+    flex-basis: border-box;
+}
+.login h2{
+    margin-top: 40px;
+}
+.login h3{
+    margin-top: 40px;
+}
+
+.wraperInput button{
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.wraperInput button:hover{
+    background-color: #187dbb;
+    color: white;
+}
+
+.border{
+    width: 310px;
+    height: 310px;
+    border-radius: 15px;
+    padding: 10px;
+    border: #ffaa00 solid 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    flex-basis: border-box;
+}
+
+.wraperInput{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.cancelButton{
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+}
+.cancelButton:hover{
+    background-color: #187dbb;
+    color: white;
+}
+
+
+
