@@ -1,10 +1,16 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {moviesService} from '../../services/movies.service'
+import {moviesService} from '../../services'
 
-const initialState = {currentPage: null, keywords:null, total_pages: null,
-    movies: null, genres: [],
-    details: {}, genresOfOneMovie: '',
-    genresArrForSearch:[]}
+const initialState = {
+    currentPage: null,
+    keywords: null,
+    total_pages: null,
+    movies: null,
+    genres: [],
+    details: {},
+    genresOfOneMovie: '',
+    genresArrForSearch: []
+}
 
 const getDetails = createAsyncThunk(
     "moviesSlice/getDetails",
@@ -16,16 +22,16 @@ const getDetails = createAsyncThunk(
 
 const searchByKeywords = createAsyncThunk(
     "moviesSlice/searchByKeywords",
-    async ({parametr,page}) => {
-        const {data} = await moviesService.searchByKeywords(parametr,page)
+    async ({parametr, page}) => {
+        const {data} = await moviesService.searchByKeywords(parametr, page)
         return data
     }
 )
 const getAll = createAsyncThunk(
     "moviesSlice/getAll",
-    async ({page,with_genres}) => {
+    async ({page, with_genres}) => {
 
-        const {data} = await moviesService.getAllMovie(page,with_genres)
+        const {data} = await moviesService.getAllMovie(page, with_genres)
         return data
     }
 )
@@ -42,16 +48,16 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {
         genresForSearch: ((state, action) => {
-            state.genresArrForSearch=action.payload.arrOfGenrs.arrOfGenrs
+            state.genresArrForSearch = action.payload.arrOfGenrs.arrOfGenrs
         }),
         getKeywords: ((state, action) => {
-            state.keywords =  action.payload.keywords.keywords
+            state.keywords = action.payload.keywords.keywords
         }),
         resetKeywords: ((state, action) => {
-            state.keywords=false
+            state.keywords = false
         }),
         resetGenresArrForSearch: ((state, action) => {
-            state.genresArrForSearch=false
+            state.genresArrForSearch = false
         }),
     },
     extraReducers: (builder) => {
@@ -75,19 +81,27 @@ const moviesSlice = createSlice({
                 state.genresOfOneMovie = genresArr.toString().replaceAll(',', ', ').toLowerCase()
             }))
             .addCase(searchByKeywords.fulfilled, ((state, action) => {
-                const {page, results,total_pages} = action.payload
+                const {page, results, total_pages} = action.payload
                 state.currentPage = page
                 state.total_pages = total_pages
                 state.movies = results
             }))
+            .addCase(searchByKeywords.rejected, ((state, action) => {
+                // console.log('rejected')
+
+            }))
     }
 })
 
-const {reducer: moviesReducer, actions: {genresForSearch,
-    getKeywords,resetKeywords,resetGenresArrForSearch}} = moviesSlice
+const {
+    reducer: moviesReducer, actions: {
+        genresForSearch,
+        getKeywords, resetKeywords, resetGenresArrForSearch
+    }
+} = moviesSlice
 
 const moviesActions = {
-    getAll, getGenres, getDetails,genresForSearch,getKeywords
-    ,searchByKeywords,resetKeywords,resetGenresArrForSearch
+    getAll, getGenres, getDetails, genresForSearch, getKeywords
+    , searchByKeywords, resetKeywords, resetGenresArrForSearch
 }
 export {moviesReducer, moviesActions};

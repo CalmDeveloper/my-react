@@ -1,12 +1,9 @@
-import switcher from './styleSwitcher.module.css'
 import {useState} from "react";
+
+import switcher from './styleSwitcher.module.css'
 
 const StyleSwitcher = () => {
     const [isToggled, setIsToggled] = useState(false);
-
-
-
-
 
 
     const onToggle = () => {
@@ -22,16 +19,12 @@ const StyleSwitcher = () => {
         }
     }
 
-
-
     return (
 
             <label className={switcher.toggleSwitch}>
                 <input type="checkbox" checked={isToggled} onChange={onToggle} />
                 <span className={switcher.switch}/>
             </label>
-
-
     );
 };
 

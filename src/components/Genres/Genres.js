@@ -1,20 +1,21 @@
-import css from './Genres.module.css'
 import {useDispatch} from "react-redux";
 import {useForm} from "react-hook-form";
 import {moviesActions} from "../../redux";
 import {SearchBar} from "../Search bar/SearchBar";
 
+import css from './Genres.module.css'
+
 const Genres = () => {
     const {register, handleSubmit} = useForm();
-const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-const getGenres = (arrOfGenrs) => {
-    dispatch(moviesActions.resetKeywords())
-    dispatch(moviesActions.genresForSearch({arrOfGenrs}))
-}
+    const getGenres = (arrOfGenrs) => {
+        dispatch(moviesActions.resetKeywords())
+        dispatch(moviesActions.genresForSearch({arrOfGenrs}))
+    }
     return (
         <div className={css.genres}>
-
+            <SearchBar/>
             <div className={css.genresBar}>
                 <ul>
                     <h3 className={css.genresBarTopic}>Select genres</h3>
@@ -62,9 +63,6 @@ const getGenres = (arrOfGenrs) => {
                     </form>
                 </ul>
             </div>
-
-            <SearchBar/>
-
         </div>
     );
 };

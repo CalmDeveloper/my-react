@@ -2,10 +2,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+   margin-top: 30px;
 }
 .searchBar input{
     border-radius: 4px;
-    padding: 3px;
+    padding: 1px;
     font-size: 14px;
     color: red;
 }
@@ -14,9 +15,11 @@
     border-radius: 4px;
     cursor: pointer;
     margin-left: 5px;
-    padding: 3px;
+    padding: 1px;
 }
 .searchBar button:hover{
     background-color: #187dbb;
     color: white;
 }
+
+

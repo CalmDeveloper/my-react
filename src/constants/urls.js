@@ -7,5 +7,6 @@ const urls={
 }
 const miniPoster = `https://image.tmdb.org/t/p/w500`
 const noFoundImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
-export {urls,baseURL,miniPoster,noFoundImage}
+const notFoundPageImage = "https://i.stack.imgur.com/6M513.png"
+export {urls,baseURL,miniPoster,noFoundImage,notFoundPageImage}
 

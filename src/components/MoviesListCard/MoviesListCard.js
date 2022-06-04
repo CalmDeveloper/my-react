@@ -1,11 +1,12 @@
-import css from './MoviesListCard.module.css'
 import {useCallback, useEffect} from "react";
+import {useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {moviesActions} from "../../redux";
+
 import {MoviesCard} from "../MoviesCard/MoviesCard";
-import {useSearchParams} from "react-router-dom";
 import {SearchResultMoviesCard} from "../SearchResultMoviesCard/SearchResultMoviesCard";
 
+import css from './MoviesListCard.module.css'
 
 const MoviesListCard = () => {
 
@@ -37,6 +38,7 @@ const dispatch = useDispatch()
         const nextPage =  +query.get('page')+1;
         setQuery({page: `${nextPage}`})
     }
+
     return (
         <div>
             <div className={css.navigation}>

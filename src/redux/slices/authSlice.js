@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 
-const initialState = {userName:null,hideLoginForm:null}
+const initialState = {userName: null, hideLoginForm: null}
 
 const authSlice = createSlice({
     name: "authSlice",
@@ -11,21 +11,21 @@ const authSlice = createSlice({
             state.hideLoginForm = true
         }),
         logOut: ((state, action) => {
-            state.userName=false
+            state.userName = false
         }),
         addUserName: ((state, action) => {
-            state.userName=action.payload.userName
+            state.userName = action.payload.userName
         }),
         hideLoginForm: ((state, action) => {
-            state.hideLoginForm=null
+            state.hideLoginForm = null
         })
     }
 
 })
 
-const {reducer: authReducer, actions: {openLoginForm,addUserName,hideLoginForm,logOut}} = authSlice
+const {reducer: authReducer, actions: {openLoginForm, addUserName, hideLoginForm, logOut}} = authSlice
 
 const authActions = {
-    openLoginForm,addUserName,hideLoginForm,logOut
+    openLoginForm, addUserName, hideLoginForm, logOut
 }
 export {authReducer, authActions};

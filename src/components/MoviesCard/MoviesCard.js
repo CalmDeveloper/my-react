@@ -1,9 +1,10 @@
-import {miniPoster, noFoundImage} from '../../constants/urls'
-import css from './Movie.module.css'
-
-
 import {useNavigate} from "react-router-dom";
 import {StarRatingForAllMovies} from "../StarRatingForAllMovies/StarRatingForAllMovies";
+
+import {miniPoster, noFoundImage} from '../../constants'
+
+import css from './Movie.module.css'
+
 const MoviesCard = ({movie}) => {
     const {title,vote_average,poster_path,id}= movie
 
@@ -17,6 +18,7 @@ const MoviesCard = ({movie}) => {
         <div className={css.movie} onClick={movieInfo}>
             <img src={link}   onError={(e)=>{ if (e.target.src !== {link})
             { e.target.onerror = null; e.target.src=noFoundImage; } }} alt={title} />
+
             <div className={css.wrap}>
                 <h3>{title}</h3>
               <StarRatingForAllMovies vote_average={vote_average}/>

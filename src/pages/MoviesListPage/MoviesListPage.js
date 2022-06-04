@@ -1,6 +1,6 @@
-import {MoviesListCard} from "../../components";
+import {MoviesListCard,Genres} from "../../components";
+
 import  css from './moviesListPage.module.css'
-import {Genres} from "../../components/Genres/Genres";
 
 const MoviesListPage = () => {
     return (
