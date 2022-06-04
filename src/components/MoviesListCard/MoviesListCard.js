@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {moviesActions} from "../../redux";
 
 import {MoviesCard} from "../MoviesCard/MoviesCard";
-import {SearchResultMoviesCard} from "../SearchResultMoviesCard/SearchResultMoviesCard";
+
 
 import css from './MoviesListCard.module.css'
 
@@ -27,6 +27,7 @@ const dispatch = useDispatch()
 
 
     useCallback(() => {dispatch(moviesActions.getGenres())}, []);
+    console.log(movies);
 
     const toPrev = () => {
         let prevPage =  query.get('page');
@@ -45,8 +46,7 @@ const dispatch = useDispatch()
                 <button onClick={toPrev} disabled={currentPage<=1 && true}>Previous page</button>
                 <button onClick={toNext} disabled={currentPage>=total_pages && true}>Next page</button>
             </div>
-            {!keywords && <div className={css.movies}>{movies && movies.map(movie => <MoviesCard key={movie.id} movie={movie}/>)}</div>}
-            {keywords && <div className={css.movies}>{movies && movies.map(movie => <SearchResultMoviesCard key={movie.id} movie={movie}/>)}</div>}
+             <div className={css.movies}>{movies && movies.map(movie => <MoviesCard key={movie.id} movie={movie}/>)}</div>
         </div>
     );
 };

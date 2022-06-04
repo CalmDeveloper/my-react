@@ -34,9 +34,9 @@ h1{
 .tagline{
     font-family: "Bookman Old Style", serif;
     font-size: 24px;
-    color: #8a2928;
+    color: #ab1918;
     margin-top: 20px;
-
+    font-weight: bolder;
 }
 
 #mediumText {
@@ -45,6 +45,8 @@ font-size: 22px;
 }
 .rating{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .rating img{
     margin-left: 15px;
