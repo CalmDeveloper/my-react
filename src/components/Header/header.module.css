@@ -29,17 +29,17 @@
 }
 
 .isLogin{
-    width: 23px;
-    height: 23px;
-    border: transparent solid 1px;
-    background-color: white;
-    color: red;
+    width: 25px;
+    height: 25px;
+    border: white solid 1px;
+    background-color: #16457a;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: bolder;
 }
 
 
