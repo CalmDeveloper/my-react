@@ -4,7 +4,7 @@ import {Genres} from "../../components/Genres/Genres";
 
 const MoviesListPage = () => {
     return (
-        <div className={css.moviesListPage}>
+        <div id={css.moviesListPage}>
 <Genres/>
 <MoviesListCard/>
         </div>

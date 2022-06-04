@@ -4,6 +4,8 @@ import {NavLink} from "react-router-dom";
 import {moviesActions} from "../../redux";
 import {LoginForm} from "../LoginForm/LoginForm";
 import {authActions} from "../../redux/slices/authSlice";
+import {StyleSwitcher} from "../StyleSwitcher/StyleSwitcher";
+
 
 
 
@@ -32,7 +34,6 @@ const {hideLoginForm,userName} = useSelector(state => state.auth)
     }
     const userLetter = user()
     const letter = userLetter?.userName?.substring(0,1)
-
     return (
         <div className={css.header}>
             <div className={css.nav}>
@@ -40,7 +41,7 @@ const {hideLoginForm,userName} = useSelector(state => state.auth)
             </div>
 
                  <h1>The world of movies</h1>
-
+            <div className={css.StyleSwitcher}><StyleSwitcher/></div>
             {hideLoginForm && <LoginForm/> }
             {userName &&  <div className={css.isLoginBar}><button onClick={logOut} className={css.logOutButton}>Logout</button><div className={css.isLogin} >{letter}</div></div>}
             {!userName &&  <button onClick={openLoginForm} className={css.loginButton}>Login</button>}

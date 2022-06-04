@@ -55,13 +55,13 @@ const imdbLogo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB
             <div className={css.wraper}>
                 <h1>{title}</h1>
                 <div className={css.rating}><StarRating vote_average={vote_average}/> <a href={imdbLink}><img src={imdbLogo} alt="imdb logo"/></a></div>
-                <div className={css.mediumText}>Genres: <span className={css.color}>{genresOfOneMovie}</span></div>
-                {(country) && <div className={css.mediumText}>Сountry: <span className={css.color}>{country}</span></div>}
-                <div className={css.mediumText}>Ran time: <span className={css.color}>{runtime} min</span></div>
-                <div className={css.mediumText}>Release date: <span className={css.color}>{release_date}</span></div>
-                {(budget !== 0) && <div className={css.mediumText}>Budget: <span className={css.color}>{budget}</span></div>}
-                {(revenue !== 0) && <div className={css.mediumText}>Profit: <span className={css.color}>{revenue}</span></div>}
-                <div className={css.mediumText}>Original language: <span className={css.color}>{original_language}</span></div>
+                <div id={css.mediumText}>Genres: <span className={css.color}>{genresOfOneMovie}</span></div>
+                {(country) && <div id={css.mediumText}>Сountry: <span className={css.color}>{country}</span></div>}
+                <div id={css.mediumText}>Ran time: <span className={css.color}>{runtime} min</span></div>
+                <div id={css.mediumText}>Release date: <span className={css.color}>{release_date}</span></div>
+                {(budget !== 0) && <div id={css.mediumText}>Budget: <span className={css.color}>{budget}</span></div>}
+                {(revenue !== 0) && <div id={css.mediumText}>Profit: <span className={css.color}>{revenue}</span></div>}
+                <div id={css.mediumText}>Original language: <span className={css.color}>{original_language}</span></div>
                 <div className={css.tagline}>{tagline}</div>
 
                 <div className={css.overview}>{overview}</div>

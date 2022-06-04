@@ -78,3 +78,8 @@
     width: 52px;
     color: red;
 }
+.StyleSwitcher{
+    position: absolute;
+    right: 50px;
+    top: 10px;
+}

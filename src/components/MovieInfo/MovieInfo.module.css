@@ -2,9 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: white;
     height: 760px;
-
 }
 .poster>img {
     border-radius: 10px;
@@ -41,8 +39,7 @@ h1{
 
 }
 
-.mediumText {
-    color: #413f3f;
+#mediumText {
 font-size: 22px;
     padding-top: 5px;
 }
@@ -58,3 +55,6 @@ font-size: 22px;
     font-family: "Constantia", serif;
     font-size: 24px;
 }
+
+
+
