@@ -51,7 +51,7 @@ const Genres = () => {
                         <li><label>Science Fiction: <input type="checkbox" {...register('arrOfGenrs')}
                                                            value={878}/></label>
                         </li>
-                        <li><label>TV Movie': <input type="checkbox" {...register('arrOfGenrs')}
+                        <li><label>TV Movie: <input type="checkbox" {...register('arrOfGenrs')}
                                                      value={10770}/></label></li>
                         <li><label>Thriller: <input type="checkbox" {...register('arrOfGenrs')} value={53}/></label>
                         </li>
