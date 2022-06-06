@@ -34,7 +34,7 @@ const SortBar = () => {
     return (
         <div className={css.sortBar}>
             <button onClick={() => sortBy("popularity.desc")} id={"popular_btn"}>Popular</button>
-            <button onClick={() => sortBy("revenue.desc")} id={"profitable_btn"}>Profitable</button>
+            <button onClick={() => sortBy("revenue.desc")} id={"profitable_btn"}>Top profit</button>
             <button onClick={() => sortBy("vote_count.desc")} id={"topRatings"}>Top ratings</button>
         </div>
     );
