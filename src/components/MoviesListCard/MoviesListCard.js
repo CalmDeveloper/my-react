@@ -11,7 +11,7 @@ import css from './MoviesListCard.module.css'
 const MoviesListCard = () => {
 
 const dispatch = useDispatch()
-    const {movies,genresArrForSearch,currentPage,total_pages,keywords} =  useSelector(state => state.movies)
+    const {movies,genresArrForSearch,currentPage,total_pages,keywords,sortValue} =  useSelector(state => state.movies)
     const [query, setQuery] = useSearchParams({page: '1'});
 
     useEffect(() => {
@@ -20,13 +20,13 @@ const dispatch = useDispatch()
         }
         else {
             dispatch(moviesActions.getAll({page:query.get('page'),
-                with_genres:genresArrForSearch.toString()}))
+                with_genres:genresArrForSearch.toString(),sort_by:sortValue.toString()}))
         }
 
-    },[query,genresArrForSearch,keywords])
+    },[query, genresArrForSearch, keywords, sortValue, dispatch])
 
 
-    useCallback(() => {dispatch(moviesActions.getGenres())}, []);
+    useCallback(() => {dispatch(moviesActions.getGenres())}, [dispatch]);
 
 
     const toPrev = () => {

@@ -7,6 +7,7 @@ import {StyleSwitcher} from "../StyleSwitcher/StyleSwitcher";
 import {LoginForm} from "../LoginForm/LoginForm";
 
 import css from './header.module.css'
+import {SortBar} from "../SortBar/SortBar";
 
 
 const Header = () => {
@@ -15,7 +16,9 @@ const Header = () => {
 
     const resetAll = () => {
         dispatch(moviesActions.resetKeywords())
-        dispatch(moviesActions.resetGenresArrForSearch())
+        dispatch(moviesActions.resetGenresArrForSearch(),
+        dispatch(moviesActions.resetSortValue())
+        )
     }
     const openLoginForm = () => {
         dispatch(authActions.openLoginForm())
@@ -24,13 +27,14 @@ const Header = () => {
         dispatch(authActions.logOut())
         dispatch(authActions.hideLoginForm())
     }
+
     const letter = userName?.userName?.substring(0, 1)
     return (
         <div className={css.header}>
             <div className={css.nav}>
-                <NavLink to={'/movies'} onClick={() => resetAll()}>Movies</NavLink>
+                <NavLink to={'/movies'} onClick={() => resetAll()}>Home</NavLink>
             </div>
-
+           <SortBar/>
             <h1>The world of movies</h1>
             <div className={css.StyleSwitcher}><StyleSwitcher/></div>
 

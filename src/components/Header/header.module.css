@@ -19,10 +19,12 @@
 
 .nav a{
     text-decoration: none;
+    margin: 0;
+    padding: 0;
     color: snow;
     font-size: 20px;
     position: absolute;
-    top: 10px;
+    top: 9px;
     left: 20px;
     font-weight: bolder;
 }

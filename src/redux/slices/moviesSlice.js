@@ -9,7 +9,8 @@ const initialState = {
     genres: [],
     details: {},
     genresOfOneMovie: '',
-    genresArrForSearch: []
+    genresArrForSearch: [],
+    sortValue:''
 }
 
 const getDetails = createAsyncThunk(
@@ -29,9 +30,8 @@ const searchByKeywords = createAsyncThunk(
 )
 const getAll = createAsyncThunk(
     "moviesSlice/getAll",
-    async ({page, with_genres}) => {
-
-        const {data} = await moviesService.getAllMovie(page, with_genres)
+    async ({page, with_genres,sort_by}) => {
+        const {data} = await moviesService.getAllMovie(page, with_genres,sort_by)
         return data
     }
 )
@@ -58,6 +58,12 @@ const moviesSlice = createSlice({
         }),
         resetGenresArrForSearch: ((state, action) => {
             state.genresArrForSearch = false
+        }),
+        resetSortValue: ((state, action) => {
+            state.sortValue = false
+        }),
+        addSortValue: ((state, action) => {
+            state.sortValue = action.payload.sortValue
         }),
     },
     extraReducers: (builder) => {
@@ -96,12 +102,14 @@ const moviesSlice = createSlice({
 const {
     reducer: moviesReducer, actions: {
         genresForSearch,
-        getKeywords, resetKeywords, resetGenresArrForSearch
+        getKeywords, resetKeywords, resetGenresArrForSearch,
+        resetSortValue,addSortValue
     }
 } = moviesSlice
 
 const moviesActions = {
     getAll, getGenres, getDetails, genresForSearch, getKeywords
-    , searchByKeywords, resetKeywords, resetGenresArrForSearch
+    , searchByKeywords, resetKeywords, resetGenresArrForSearch,
+    resetSortValue,addSortValue
 }
 export {moviesReducer, moviesActions};

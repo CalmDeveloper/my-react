@@ -1,0 +1,32 @@
+.sortBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 90px;
+
+}
+
+.sortBar button{
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    width: 80px;
+}
+
+.sortBar button:hover{
+    width: 82px;
+}
+
+
+#topRating{
+
+}
+#popular_btn{
+
+}
+#profitable_btn{
+
+}
